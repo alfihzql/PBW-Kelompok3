@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pengguna</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/Images/HotelKu.png" alt="Hotel Logo">
+            </div>
+            <div class="nav-items">
+                <a href="reservations.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i> Reservasi
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i> Pembayaran
+                </a>
+                <a href="profile.html" class="nav-item active">
+                    <i class="fas fa-user"></i> Profil
+                </a>
+                <a href="logout.html" class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Dashboard Pengguna</h1>
+                <div class="user-info">
+                    <img src="/Images/Person.png" alt="User Profile">
+                    <span>Nama Pengguna</span>
+                </div>
+            </div>
+
+            <!-- Konten Dashboard -->
+            <div class="content-section">
+                <div class="dashboard-grid">
+                    <!-- Profil Pengguna -->
+                    <div class="card profile-card">
+                        <h2 class="card-title">Profil Pengguna</h2>
+                        <img src="https://via.placeholder.com/100" alt="Avatar" class="profile-avatar">
+                        <p class="profile-name">Nama Pengguna</p>
+                        <p class="profile-email">email@example.com</p>
+                        <button class="btn btn-primary">Ubah Profil</button>
+                    </div>
+
+                    <!-- Opsi Pembayaran -->
+                    <div class="card">
+                        <h2 class="card-title">Opsi Pembayaran</h2>
+                        <ul class="payment-options">
+                            <li class="payment-option">💳 BSI</li>
+                            <li class="payment-option">🏦 Bank Aceh</li>
+                            <li class="payment-option">📱 LinkAja</li>
+                        </ul>
+                    </div>
+
+                    <!-- Preferensi -->
+                    <div class="card">
+                        <h2 class="card-title">Preferensi</h2>
+                        <label for="language">Bahasa:</label>
+                        <select id="language" class="input-field">
+                            <option>Indonesia</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+
+                    <!-- Pesan -->
+                    <div class="card">
+                        <h2 class="card-title">Pesan</h2>
+                        <p class="message-text">Tidak ada pesan baru</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

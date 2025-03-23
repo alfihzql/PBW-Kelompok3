@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Saya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/Images/HotelKu.png" alt="Hotel Logo">
+            </div>
+            <div class="nav-items">
+                <a href="reservations.html" class="nav-item active">
+                    <i class="fas fa-calendar-check"></i> Reservasi
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i> Pembayaran
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i> Profil
+                </a>
+                <a href="logout.html" class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Reservasi Saya</h1>
+                <div class="user-info">
+                    <img src="/Images/Person.png" alt="User Profile">
+                    <span>Nama Pengguna</span>
+                </div>
+            </div>
+
+            <!-- Konten Reservasi -->
+            <div class="content-section">
+                <div class="dashboard-grid">
+                    <!-- Daftar Reservasi -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Daftar Reservasi</h2>
+                        </div>
+                        <div class="table-container">
+                            <table class="reservations-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID Reservasi</th>
+                                        <th>Nama Hotel</th>
+                                        <th>Check-in</th>
+                                        <th>Check-out</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#12345</td>
+                                        <td>Hotel Mawar</td>
+                                        <td>10 April 2025</td>
+                                        <td>15 April 2025</td>
+                                        <td><span class="status-badge confirmed">Dikonfirmasi</span></td>
+                                        <td><button class="btn btn-danger btn-xs">Batalkan</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#12346</td>
+                                        <td>Hotel Melati</td>
+                                        <td>20 Mei 2025</td>
+                                        <td>25 Mei 2025</td>
+                                        <td><span class="status-badge pending">Menunggu</span></td>
+                                        <td><button class="btn btn-danger btn-xs">Batalkan</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#12347</td>
+                                        <td>Hotel Anggrek</td>
+                                        <td>5 Juni 2025</td>
+                                        <td>10 Juni 2025</td>
+                                        <td><span class="status-badge cancelled">Dibatalkan</span></td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Form Tambah Reservasi -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Pesan Kamar Baru</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="submit_reservation.html" method="post">
+                                <div class="form-group">
+                                    <label for="hotel">Pilih Hotel:</label>
+                                    <select id="hotel" class="input-field">
+                                        <option>Hotel Mawar</option>
+                                        <option>Hotel Melati</option>
+                                        <option>Hotel Anggrek</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="checkin">Tanggal Check-in:</label>
+                                    <input type="date" id="checkin" class="input-field" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="checkout">Tanggal Check-out:</label>
+                                    <input type="date" id="checkout" class="input-field" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

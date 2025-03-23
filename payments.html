@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/Images/HotelKu.png" alt="Hotel Logo">
+            </div>
+            <div class="nav-items">
+                <a href="reservations.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i> Reservasi
+                </a>
+                <a href="payments.html" class="nav-item active">
+                    <i class="fas fa-credit-card"></i> Pembayaran
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i> Profil
+                </a>
+                <a href="logout.html" class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Pembayaran</h1>
+                <div class="user-info">
+                    <img src="Images/Person.png" alt="User Profile">
+                    <span>Nama Pengguna</span>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="content-section">
+                <div class="dashboard-grid">
+                    <!-- Metode Pembayaran -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Metode Pembayaran</h2>
+                        </div>
+                        <div class="payment-options">
+                            <div class="payment-method">
+                                <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2024/1/28/446d21e9-a507-4419-878e-af4f27026857.jpg" 
+                                    alt="BSI" width="100">
+                                <p>Bank Syariah Indonesia (BSI)</p>
+                            </div>
+                            <div class="payment-method">
+                                <img src="https://play-lh.googleusercontent.com/WgjyTE2_TMW_x2EalMBXCcjJtDfYo9LcZ5twV2lprm4GqhKp1EMyHUHhovUjrnFMwyQ" 
+                                    alt="Bank Aceh" width="100">
+                                <p>Bank Aceh</p>
+                            </div>
+                            <div class="payment-method">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/LinkAja.svg/1200px-LinkAja.svg.png" 
+                                    alt="LinkAja" width="100">
+                                <p>LinkAja</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Riwayat Pembayaran -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Riwayat Pembayaran</h2>
+                        </div>
+                        <div class="table-container">
+                            <table class="payments-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID Pembayaran</th>
+                                        <th>Tanggal</th>
+                                        <th>Metode</th>
+                                        <th>Jumlah</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#98765</td>
+                                        <td>15 Maret 2025</td>
+                                        <td>BSI</td>
+                                        <td>Rp 1.500.000</td>
+                                        <td><span class="status-badge confirmed">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98766</td>
+                                        <td>20 Maret 2025</td>
+                                        <td>Bank Aceh</td>
+                                        <td>Rp 750.000</td>
+                                        <td><span class="status-badge pending">Menunggu</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#98767</td>
+                                        <td>25 Maret 2025</td>
+                                        <td>LinkAja</td>
+                                        <td>Rp 500.000</td>
+                                        <td><span class="status-badge cancelled">Dibatalkan</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Form Pembayaran -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Bayar Reservasi</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="submit_payment.html" method="post">
+                                <div class="form-group">
+                                    <label for="reservation-id">Pilih Reservasi:</label>
+                                    <select id="reservation-id" class="input-field">
+                                        <option>#12345 - Hotel Mawar (Rp 1.500.000)</option>
+                                        <option>#12346 - Hotel Melati (Rp 750.000)</option>
+                                        <option>#12347 - Hotel Anggrek (Rp 500.000)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="payment-method">Metode Pembayaran:</label>
+                                    <select id="payment-method" class="input-field">
+                                        <option>BSI</option>
+                                        <option>Bank Aceh</option>
+                                        <option>LinkAja</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Bayar Sekarang</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
