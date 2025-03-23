@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Pengguna</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/image/HotelKu.png" alt="Hotel Logo">
+            </div>
+            <div class="nav-items">
+                <a href="dashboard.html" class="nav-item" data-page="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="users.html" class="nav-item active" data-page="users">
+                    <i class="fas fa-users"></i> Pengguna
+                </a>
+                <a href="hotels.html" class="nav-item" data-page="hotels">
+                    <i class="fas fa-hotel"></i> Hotel
+                </a>
+                <a href="rooms.html" class="nav-item" data-page="rooms">
+                    <i class="fas fa-bed"></i> Kamar
+                </a>
+                <a href="reservations.html" class="nav-item" data-page="reservations">
+                    <i class="fas fa-calendar-check"></i> Reservasi
+                </a>
+                <a href="payments.html" class="nav-item" data-page="payments">
+                    <i class="fas fa-credit-card"></i> Pembayaran
+                </a>
+                <a href="reports.html" class="nav-item" data-page="reports">
+                    <i class="fas fa-chart-line"></i> Laporan
+                </a>
+                <a href="notifications.html" class="nav-item" data-page="notifications">
+                    <i class="fas fa-bell"></i> Notifikasi & Log
+                </a>
+                <a href="settings.html" class="nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> Pengaturan
+                </a>
+                <a href="reviews.html" class="nav-item" data-page="reviews">
+                    <i class="fas fa-star"></i> Ulasan
+                </a>
+                <div class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Manajemen Pengguna</h1>
+                <div class="user-info">
+                    <img src="/image/Person.png" alt="Admin Profile">
+                    <span>Admin</span>
+                </div>
+            </div>
+
+            <!-- Konten Pengguna -->
+            <div class="content-section user-management-section">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-top">
+                            <div class="card-title">Manajemen Pengguna</div>
+                            <div class="card-actions">
+                                <button class="btn btn-primary" id="add-user-btn">
+                                    <i class="fas fa-plus"></i> Tambah Pengguna
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-toolbar">
+                            <div class="search-filter-container">
+                                <div class="search-box">
+                                    <input type="text" id="user-search" class="form-control" placeholder="Cari pengguna...">
+                                    <i class="fas fa-search search-icon"></i>
+                                </div>
+                                <select id="status-filter" class="form-control">
+                                    <option value="">Semua Status</option>
+                                    <option value="Active">Aktif</option>
+                                    <option value="Blocked">Diblokir</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="user-management-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body">
+                                <!-- Data akan diisi via JavaScript -->
+                            </tbody>
+                        </table>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="btn btn-pagination prev"><i class="fas fa-chevron-left"></i></button>
+                            <div class="page-numbers">
+                                <span class="page-active">1</span>
+                                <span>2</span>
+                                <span>3</span>
+                            </div>
+                            <button class="btn btn-pagination next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Pengguna -->
+    <div class="modal-backdrop" id="add-user-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Tambah Pengguna</div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-user-form">
+                    <div class="form-group">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Role</label>
+                        <select class="form-control" name="role" required>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="save-user-btn">Simpan</button>
+                <button class="btn" id="cancel-user-btn">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="block-user-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Blokir Pengguna</div>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin memblokir pengguna ini?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="confirm-block-btn">Blokir</button>
+                <button class="btn" id="cancel-block-btn">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

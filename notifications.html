@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifikasi & Log Aktivitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/image/HotelKu.png" alt="Hotel Logo">
+            </div>
+            <div class="nav-items">
+                <a href="dashboard.html" class="nav-item" data-page="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="users.html" class="nav-item" data-page="users">
+                    <i class="fas fa-users"></i> Pengguna
+                </a>
+                <a href="hotels.html" class="nav-item" data-page="hotels">
+                    <i class="fas fa-hotel"></i> Hotel
+                </a>
+                <a href="rooms.html" class="nav-item" data-page="rooms">
+                    <i class="fas fa-bed"></i> Kamar
+                </a>
+                <a href="reservations.html" class="nav-item" data-page="reservations">
+                    <i class="fas fa-calendar-check"></i> Reservasi
+                </a>
+                <a href="payments.html" class="nav-item" data-page="payments">
+                    <i class="fas fa-credit-card"></i> Pembayaran
+                </a>
+                <a href="reports.html" class="nav-item" data-page="reports">
+                    <i class="fas fa-chart-line"></i> Laporan
+                </a>
+                <a href="notifications.html" class="nav-item active" data-page="notifications">
+                    <i class="fas fa-bell"></i> Notifikasi & Log
+                </a>
+                <a href="settings.html" class="nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> Pengaturan
+                </a>
+                <a href="reviews.html" class="nav-item" data-page="reviews">
+                    <i class="fas fa-star"></i> Ulasan
+                </a>
+                <div class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Notifikasi & Log Aktivitas</h1>
+                <div class="user-info">
+                    <img src="image/Person.png" alt="Admin Profile">
+                    <span>Admin</span>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <!-- Daftar Notifikasi Terbaru -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Notifikasi Terbaru</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul class="notification-list">
+                            <li>
+                                <i class="fas fa-calendar-check notification-icon"></i>
+                                <div class="notification-content">
+                                    <p><strong>Reservasi Baru</strong> - Kamar Deluxe dipesan oleh John Doe.</p>
+                                    <small>2 menit yang lalu</small>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-credit-card notification-icon"></i>
+                                <div class="notification-content">
+                                    <p><strong>Pembayaran Diterima</strong> - Pembayaran untuk reservasi #12345 telah diterima.</p>
+                                    <small>1 jam yang lalu</small>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-comment-dots notification-icon"></i>
+                                <div class="notification-content">
+                                    <p><strong>Permintaan Pelanggan</strong> - Jane Doe meminta sarapan tambahan.</p>
+                                    <small>3 jam yang lalu</small>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Riwayat Log Admin -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Riwayat Log Admin</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="log-table">
+                            <thead>
+                                <tr>
+                                    <th>Waktu</th>
+                                    <th>Aktivitas</th>
+                                    <th>Admin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2023-10-01 14:30</td>
+                                    <td>Mengedit data kamar #101</td>
+                                    <td>Admin 1</td>
+                                </tr>
+                                <tr>
+                                    <td>2023-10-01 12:15</td>
+                                    <td>Menghapus reservasi #12344</td>
+                                    <td>Admin 2</td>
+                                </tr>
+                                <tr>
+                                    <td>2023-10-01 10:00</td>
+                                    <td>Menambahkan kamar baru #201</td>
+                                    <td>Admin 1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
