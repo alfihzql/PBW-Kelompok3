@@ -4,63 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservasi Saya</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
-    <style>
-        /* Modal Style */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px;
-            text-align: center;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal.show .modal-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .modal button {
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .modal .confirm {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .modal .cancel {
-            background-color: #dc3545;
-            color: white;
-        }
-    </style>
 </head>
 
 <body>
@@ -71,10 +17,10 @@
                 <img src="/Images/HotelKu.png" alt="Hotel Logo">
             </div>
             <div class="nav-items">
-                <a href="dashboard.html" class="nav-item">
+                <a href="dashboard.html" class="nav-item active">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="reservations.html" class="nav-item active">
+                <a href="reservations.html" class="nav-item">
                     <i class="fas fa-calendar-check"></i> Reservasi
                 </a>
                 <a href="payments.html" class="nav-item">
@@ -93,153 +39,95 @@
         <div class="main-content">
             <!-- Header -->
             <div class="header">
-                <h1>Reservasi Saya</h1>
+                <h1>Dashboard</h1>
                 <div class="user-info">
                     <img src="/Images/Person.png" alt="User Profile">
                     <span>Nama Pengguna</span>
                 </div>
             </div>
 
-            <!-- Konten Reservasi -->
+            <!-- Dashboard Content -->
             <div class="content-section">
-                <div class="dashboard-grid">
-                    <!-- Daftar Reservasi -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>Daftar Reservasi</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
                         </div>
-                        <div class="table-container">
-                            <table class="reservations-table">
-                                <thead>
-                                    <tr>
-                                        <th>ID Reservasi</th>
-                                        <th>Nama Hotel</th>
-                                        <th>Check-in</th>
-                                        <th>Check-out</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="reservation-list">
-                                    <!-- Data reservasi akan dimuat di sini -->
-                                </tbody>
-                            </table>
+                        <div class="stat-info">
+                            <h3>Reservasi Aktif</h3>
+                            <div class="stat-value">89</div>
+                            <div class="stat-trend positive">+10% (30d)</div>
                         </div>
                     </div>
 
-                    <!-- Form Tambah Reservasi -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>Pesan Kamar Baru</h2>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-wallet"></i>
                         </div>
-                        <div class="card-body">
-                            <form id="reservation-form">
-                                <div class="form-group">
-                                    <label for="hotel">Pilih Hotel:</label>
-                                    <select id="hotel" class="input-field">
-                                        <option>Hotel Mawar</option>
-                                        <option>Hotel Melati</option>
-                                        <option>Hotel Anggrek</option>
-                                    </select>
-                                </div>
+                        <div class="stat-info">
+                            <h3>Total Pembayaran</h3>
+                            <div class="stat-value">Rp 182.5jt</div>
+                            <div class="stat-trend positive">+23% (bulan lalu)</div>
+                        </div>
+                    </div>
 
-                                <div class="form-group">
-                                    <label for="checkin">Tanggal Check-in:</label>
-                                    <input type="date" id="checkin" class="input-field" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="checkout">Tanggal Check-out:</label>
-                                    <input type="date" id="checkout" class="input-field" required>
-                                </div>
-
-                                <button type="button" class="btn btn-primary" id="open-reservation-modal">Pesan Sekarang</button>
-                            </form>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Notifikasi Baru</h3>
+                            <div class="stat-value">5</div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Recent Reservations -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Reservasi Terbaru</h2>
+                        <button class="btn btn-primary btn-xs" onclick="window.location.href='reservations.html'">
+                            Lihat Semua <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="reservations-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Reservasi</th>
+                                    <th>Hotel</th>
+                                    <th>Tanggal</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#12345</td>
+                                    <td>Hotel Mawar</td>
+                                    <td>15 Maret 2025</td>
+                                    <td><span class="status-badge new">Baru</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#12346</td>
+                                    <td>Hotel Melati</td>
+                                    <td>20 Maret 2025</td>
+                                    <td><span class="status-badge confirmed">Dikonfirmasi</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#12347</td>
+                                    <td>Hotel Anggrek</td>
+                                    <td>25 Maret 2025</td>
+                                    <td><span class="status-badge cancelled">Dibatalkan</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Modal Konfirmasi Reservasi -->
-    <div id="reservation-modal" class="modal">
-        <div class="modal-content">
-            <h2>Konfirmasi Reservasi</h2>
-            <p id="reservation-details"></p>
-            <button class="confirm" id="confirm-reservation">Pesan</button>
-            <button class="cancel" id="close-reservation-modal">Batal</button>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById("open-reservation-modal").addEventListener("click", function() {
-            let hotel = document.getElementById("hotel").value;
-            let checkin = document.getElementById("checkin").value;
-            let checkout = document.getElementById("checkout").value;
-
-            if (!checkin || !checkout) {
-                alert("Harap pilih tanggal check-in dan check-out!");
-                return;
-            }
-
-            if (checkin >= checkout) {
-                alert("Tanggal check-out harus setelah check-in!");
-                return;
-            }
-
-            document.getElementById("reservation-details").innerText = 
-                `Anda akan memesan kamar di ${hotel} dari ${checkin} hingga ${checkout}. Lanjutkan?`;
-
-            document.getElementById("reservation-modal").classList.add("show");
-        });
-
-        document.getElementById("close-reservation-modal").addEventListener("click", function() {
-            document.getElementById("reservation-modal").classList.remove("show");
-        });
-
-        document.getElementById("confirm-reservation").addEventListener("click", function() {
-            let hotel = document.getElementById("hotel").value;
-            let checkin = document.getElementById("checkin").value;
-            let checkout = document.getElementById("checkout").value;
-
-            let newReservation = {
-                id: "#" + (Math.floor(Math.random() * 90000) + 10000),
-                hotel: hotel,
-                checkin: checkin,
-                checkout: checkout,
-                status: "Dikonfirmasi"
-            };
-
-            let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
-            reservations.push(newReservation);
-            localStorage.setItem("reservations", JSON.stringify(reservations));
-
-            renderReservations();
-            document.getElementById("reservation-modal").classList.remove("show");
-        });
-
-        function renderReservations() {
-            let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
-            let reservationList = document.getElementById("reservation-list");
-            reservationList.innerHTML = "";
-
-            reservations.forEach(reservation => {
-                let row = `
-                    <tr>
-                        <td>${reservation.id}</td>
-                        <td>${reservation.hotel}</td>
-                        <td>${reservation.checkin}</td>
-                        <td>${reservation.checkout}</td>
-                        <td><span class="status-badge confirmed">${reservation.status}</span></td>
-                    </tr>
-                `;
-                reservationList.innerHTML += row;
-            });
-        }
-
-        window.onload = renderReservations;
-    </script>
-
 </body>
-</html>
 
+</html>
