@@ -11,7 +11,7 @@ function hideSidebar(){
 function redirectToPage() {
     const role = document.getElementById("role").value;
     if(role == "user") {
-        window.location.href = "dasboard_user.html";
+        window.location.href = "dashboard_user.html";
     } else if (role == "admin") {
         window.location.href = "dashboard.html";
     } else {
