@@ -564,7 +564,7 @@ function initReports() {
     // Inisialisasi grafik
     const bookingChartCtx = document.getElementById('bookingChart').getContext('2d');
     const revenueChartCtx = document.getElementById('revenueChart').getContext('2d');
-    const occupancyChartCtx = document.getElementById('occupancyChart').getContext('2d');
+
 
     // Grafik Trend Pemesanan
     const bookingChart = new Chart(bookingChartCtx, {
