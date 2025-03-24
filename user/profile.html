@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna - HotelKu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style4.css">
+    <style>
+        /* Tambahan CSS khusus untuk halaman profil */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            padding: 2rem;
+            border-radius: 12px;
+            color: white;
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            margin-right: 2rem;
+        }
+        
+        .profile-details h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        .profile-details p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .badge i {
+            margin-right: 5px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            background-color: rgba(71, 118, 230, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: #4776E6;
+            font-size: 1.5rem;
+        }
+        
+        .stat-info {
+            flex: 1;
+        }
+        
+        .stat-info h3 {
+            margin: 0;
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0.3rem 0;
+            color: #333;
+        }
+        
+        .stat-trend {
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .stat-trend.positive {
+            color: #28a745;
+        }
+        
+        .stat-trend.negative {
+            color: #dc3545;
+        }
+        
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+        }
+        
+        .tab:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid #4776E6;
+            color: #4776E6;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .profile-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-info-item {
+            background-color: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-info-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+        
+        .info-label {
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .info-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #4776E6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(71, 118, 230, 0.1);
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #3a67d7, #7d43d8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e9ecef;
+        }
+        
+        .btn-xs {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+        
+        .checkbox-container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .checkbox-container:hover input ~ .checkmark {
+            background-color: #f1f3f5;
+        }
+        
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: #4776E6;
+            border-color: #4776E6;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .checkbox-container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .reservations-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .reservations-table th, .reservations-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .reservations-table th {
+            font-weight: 600;
+            color: #555;
+            background-color: #f8f9fa;
+        }
+        
+        .reservations-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .status-badge.completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-badge.confirmed {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        
+        .status-badge.cancelled {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-badge.new {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background-color: #4776E6;
+            color: white;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .table-container {
+            padding: 0 1.5rem 1.5rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/image/HotelKu.png" alt="HotelKu Logo">
+            </div>
+            <div class="nav-items">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="reservations.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i> Reservasi
+                </a>
+                <a href="payments.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i> Pembayaran
+                </a>
+                <a href="profile.html" class="nav-item active">
+                    <i class="fas fa-user"></i> Profil
+                </a>
+                <a href="logout.html" class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Profil Pengguna</h1>
+                <div class="user-info">
+                    <img src="/image/Person.png" alt="User Profile">
+                    <span>Budi Santoso</span>
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="content-section">
+                <!-- Profile Header with Avatar -->
+                <div class="profile-header">
+                    <img src="/image/Person.png" alt="Budi Santoso" class="profile-avatar">
+                    <div class="profile-details">
+                        <h1>Budi Santoso</h1>
+                        <p>Member sejak Januari 2023</p>
+                        <div class="badge">
+                            <i class="fas fa-medal"></i> Silver Member
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Stats Container -->
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Level Member</h3>
+                            <div class="stat-value">Silver</div>
+                            <div class="stat-trend positive">250 Poin</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Reservasi Aktif</h3>
+                            <div class="stat-value">1</div>
+                            <div class="stat-trend positive">Dari total 2 reservasi</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Pengeluaran</h3>
+                            <div class="stat-value">Rp 3.5jt</div>
+                            <div class="stat-trend positive">+23% (bulan lalu)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Informasi Profil</h2>
+                    </div>
+                    <div class="tab-container">
+                        <div class="tab active" onclick="changeTab('personal-info')">
+                            <i class="fas fa-user"></i> Informasi Pribadi
+                        </div>
+                        <div class="tab" onclick="changeTab('edit-profile')">
+                            <i class="fas fa-edit"></i> Ubah Profil
+                        </div>
+                        <div class="tab" onclick="changeTab('preferences')">
+                            <i class="fas fa-sliders-h"></i> Preferensi
+                        </div>
+                        <div class="tab" onclick="changeTab('security')">
+                            <i class="fas fa-shield-alt"></i> Keamanan
+                        </div>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-contents">
+                        <!-- Personal Info Tab -->
+                        <div id="personal-info" class="tab-content active">
+                            <div class="profile-info-grid">
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-user"></i> Nama Lengkap
+                                    </div>
+                                    <div class="info-value">Budi Santoso</div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-envelope"></i> Email
+                                    </div>
+                                    <div class="info-value">budi.santoso@example.com</div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-phone"></i> No. Telepon
+                                    </div>
+                                    <div class="info-value">+62 812-3456-7890</div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-map-marker-alt"></i> Alamat
+                                    </div>
+                                    <div class="info-value">Jl. Pahlawan No. 123, Jakarta, 12345</div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-medal"></i> Membership
+                                    </div>
+                                    <div class="info-value">Silver</div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-star"></i> Poin Reward
+                                    </div>
+                                    <div class="info-value">250 poin</div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-calendar-alt"></i> Tanggal Daftar
+                                    </div>
+                                    <div class="info-value">01 Jan 2023</div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <div class="info-label">
+                                        <i class="fas fa-hotel"></i> Preferensi Kamar
+                                    </div>
+                                    <div class="info-value">Deluxe</div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn btn-primary" onclick="changeTab('edit-profile')">
+                                    <i class="fas fa-edit"></i> Ubah Informasi
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Edit Profile Tab -->
+                        <div id="edit-profile" class="tab-content">
+                            <form class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            <i class="fas fa-user"></i> Nama Lengkap
+                                        </label>
+                                        <input type="text" id="name" value="Budi Santoso" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </label>
+                                        <input type="email" id="email" value="budi.santoso@example.com" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone">
+                                            <i class="fas fa-phone"></i> No. Telepon
+                                        </label>
+                                        <input type="tel" id="phone" value="+62 812-3456-7890" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">
+                                            <i class="fas fa-map-marker-alt"></i> Alamat
+                                        </label>
+                                        <input type="text" id="address" value="Jl. Pahlawan No. 123, Jakarta, 12345" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary" onclick="changeTab('personal-info')">
+                                        <i class="fas fa-times"></i> Batal
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Simpan Perubahan
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Preferences Tab -->
+                        <div id="preferences" class="tab-content">
+                            <form class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="language">
+                                            <i class="fas fa-language"></i> Bahasa
+                                        </label>
+                                        <select id="language" class="form-control">
+                                            <option value="id" selected>Indonesia</option>
+                                            <option value="en">English</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="room-preference">
+                                            <i class="fas fa-bed"></i> Preferensi Kamar
+                                        </label>
+                                        <select id="room-preference" class="form-control">
+                                            <option value="standard">Standard</option>
+                                            <option value="deluxe" selected>Deluxe</option>
+                                            <option value="suite">Suite</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="notification">
+                                            <i class="fas fa-bell"></i> Notifikasi
+                                        </label>
+                                        <select id="notification" class="form-control">
+                                            <option value="all" selected>Semua</option>
+                                            <option value="email">Email Saja</option>
+                                            <option value="none">Tidak Ada</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="currency">
+                                            <i class="fas fa-money-bill-wave"></i> Mata Uang
+                                        </label>
+                                        <select id="currency" class="form-control">
+                                            <option value="idr" selected>Rupiah (IDR)</option>
+                                            <option value="usd">US Dollar (USD)</option>
+                                            <option value="eur">Euro (EUR)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        Terima email promosi dan penawaran khusus
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        Terima notifikasi reservasi
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                        Terima newsletter bulanan
+                                    </label>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Simpan Preferensi
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Security Tab -->
+                        <div id="security" class="tab-content">
+                            <form class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="current-password">
+                                            <i class="fas fa-lock"></i> Kata Sandi Saat Ini
+                                        </label>
+                                        <input type="password" id="current-password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="new-password">
+                                            <i class="fas fa-key"></i> Kata Sandi Baru
+                                        </label>
+                                        <input type="password" id="new-password" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-password">
+                                            <i class="fas fa-check-double"></i> Konfirmasi Kata Sandi Baru
+                                        </label>
+                                        <input type="password" id="confirm-password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="two-factor">
+                                        <i class="fas fa-shield-alt"></i> Autentikasi Dua Faktor
+                                    </label>
+                                    <select id="two-factor" class="form-control">
+                                        <option value="off" selected>Nonaktif</option>
+                                        <option value="sms">Via SMS</option>
+                                        <option value="email">Via Email</option>
+                                        <option value="app">Via Aplikasi Autentikator</option>
+                                    </select>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Ubah Kata Sandi
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservation History -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Riwayat Reservasi</h2>
+                        <button class="btn btn-primary btn-xs" onclick="window.location.href='reservations.html'">
+                            Lihat Semua <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="reservations-table">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Hotel</th>
+                                    <th>Check-in</th>
+                                    <th>Check-out</th>
+                                    <th>Kamar</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#12345</td>
+                                    <td>Hotel Mawar</td>
+                                    <td>15 Feb 2023</td>
+                                    <td>17 Feb 2023</td>
+                                    <td>Deluxe Room</td>
+                                    <td><span class="status-badge completed">Selesai</span></td>
+                                    <td>
+                                        <button class="action-btn" title="Lihat Detail">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#12346</td>
+                                    <td>Hotel Melati</td>
+                                    <td>20 Mar 2025</td>
+                                    <td>22 Mar 2025</td>
+                                    <td>Deluxe Room</td>
+                                    <td><span class="status-badge confirmed">Mendatang</span></td>
+                                    <td>
+                                        <button class="action-btn" title="Lihat Detail">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Find the tab that was clicked and add active class
+            document.querySelectorAll('.tab').forEach(tab => {
+                if (tab.getAttribute('onclick').includes(tabId)) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
