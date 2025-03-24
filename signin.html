@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | HotelKu</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/c993b649e8.js"></script>
+</head>
+<body class="res-log-body">
+    <a href="index.html"><i class="fa fa-arrow-left"></i></a>
+    <select id="role">
+        <option value="">Pilih Role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select>
+    <br>
+    <div class="container" id="container">
+        <div class="form-box signin">
+            <form>
+                <h1>Sign In</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-key"></i>
+                </div>
+                <div class="res-log-txt">
+                    <input type="checkbox">Ingat Saya
+                    <a href="login.html">Sudah Punya Akun</a>
+                </div>
+                <button onclick="redirectToPage()" type="submit" class="res-log-btn">Sign in <i class="fas fa-right-to-bracket"></i></button>
+                <p>atau signin dengan media sosial</p>
+                <div class="form-social-icons">
+                    <a href="#" class="fab fa-google"></a>
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div>
+            </form>
+        </div>
+
+        <div class="toggle-box hideOnMobile">
+            <div class="toggle-panel toggle-left">
+                <h1>Selamat Datang di HotelKu!</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
