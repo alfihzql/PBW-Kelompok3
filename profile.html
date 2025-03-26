@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style4.css">
     <style>
         /* Tambahan CSS khusus untuk halaman profil */
+        
         .profile-header {
             display: flex;
             align-items: center;
@@ -268,11 +269,11 @@
             border-radius: 5px;
         }
         
-        .checkbox-container:hover input ~ .checkmark {
+        .checkbox-container:hover input~.checkmark {
             background-color: #f1f3f5;
         }
         
-        .checkbox-container input:checked ~ .checkmark {
+        .checkbox-container input:checked~.checkmark {
             background-color: #4776E6;
             border-color: #4776E6;
         }
@@ -283,7 +284,7 @@
             display: none;
         }
         
-        .checkbox-container input:checked ~ .checkmark:after {
+        .checkbox-container input:checked~.checkmark:after {
             display: block;
         }
         
@@ -302,7 +303,8 @@
             border-collapse: collapse;
         }
         
-        .reservations-table th, .reservations-table td {
+        .reservations-table th,
+        .reservations-table td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #eee;
@@ -405,13 +407,13 @@
                 <img src="/image/HotelKu.png" alt="HotelKu Logo">
             </div>
             <div class="nav-items">
-                <a href="dashboard.html" class="nav-item">
+                <a href="dashboard_user.html" class="nav-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="reservations.html" class="nav-item">
+                <a href="reservations_user.html" class="nav-item">
                     <i class="fas fa-calendar-check"></i> Reservasi
                 </a>
-                <a href="payments.html" class="nav-item">
+                <a href="payments_user.html" class="nav-item">
                     <i class="fas fa-credit-card"></i> Pembayaran
                 </a>
                 <a href="profile.html" class="nav-item active">
@@ -447,7 +449,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Profile Stats Container -->
                 <div class="stats-container">
                     <div class="stat-card">
@@ -787,15 +789,15 @@
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
-            
+
             // Remove active class from all tabs
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.classList.remove('active');
             });
-            
+
             // Show the selected tab content
             document.getElementById(tabId).classList.add('active');
-            
+
             // Find the tab that was clicked and add active class
             document.querySelectorAll('.tab').forEach(tab => {
                 if (tab.getAttribute('onclick').includes(tabId)) {

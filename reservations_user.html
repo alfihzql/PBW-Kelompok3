@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style7.css">
     <style>
         /* Modal Style */
+        
         .modal {
             display: none;
             position: fixed;
@@ -22,7 +23,7 @@
             align-items: center;
             transition: all 0.3s ease-in-out;
         }
-
+        
         .modal-content {
             background-color: white;
             padding: 20px;
@@ -33,16 +34,16 @@
             opacity: 0;
             transition: all 0.3s ease-in-out;
         }
-
+        
         .modal.show {
             display: flex;
         }
-
+        
         .modal.show .modal-content {
             transform: scale(1);
             opacity: 1;
         }
-
+        
         .modal button {
             margin: 10px;
             padding: 10px 20px;
@@ -50,12 +51,12 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
+        
         .modal .confirm {
             background-color: #28a745;
             color: white;
         }
-
+        
         .modal .cancel {
             background-color: #dc3545;
             color: white;
@@ -66,18 +67,18 @@
 <body>
     <div class="container">
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar_user">
             <div class="logo">
-                <img src="/Images/HotelKu.png" alt="Hotel Logo">
+                <img src="/image/HotelKu.png" alt="Hotel Logo">
             </div>
             <div class="nav-items">
-                <a href="dashboard.html" class="nav-item">
+                <a href="dashboard_user.html" class="nav-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="reservations.html" class="nav-item active">
+                <a href="reservations_user.html" class="nav-item active">
                     <i class="fas fa-calendar-check"></i> Reservasi
                 </a>
-                <a href="payments.html" class="nav-item">
+                <a href="payments_user.html" class="nav-item">
                     <i class="fas fa-credit-card"></i> Pembayaran
                 </a>
                 <a href="profile.html" class="nav-item">
@@ -95,7 +96,7 @@
             <div class="header">
                 <h1>Reservasi Saya</h1>
                 <div class="user-info">
-                    <img src="/Images/Person.png" alt="User Profile">
+                    <img src="/image/Person.png" alt="User Profile">
                     <span>Nama Pengguna</span>
                 </div>
             </div>
@@ -187,7 +188,7 @@
                 return;
             }
 
-            document.getElementById("reservation-details").innerText = 
+            document.getElementById("reservation-details").innerText =
                 `Anda akan memesan kamar di ${hotel} dari ${checkin} hingga ${checkout}. Lanjutkan?`;
 
             document.getElementById("reservation-modal").classList.add("show");
@@ -241,4 +242,5 @@
     </script>
 
 </body>
+
 </html>

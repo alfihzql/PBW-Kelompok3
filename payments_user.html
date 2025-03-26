@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style7.css">
     <style>
         /* Modal Style */
+        
         .modal {
             display: none;
             position: fixed;
@@ -21,7 +22,7 @@
             justify-content: center;
             align-items: center;
         }
-
+        
         .modal-content {
             background-color: white;
             padding: 20px;
@@ -29,7 +30,7 @@
             width: 400px;
             text-align: center;
         }
-
+        
         .modal button {
             margin: 10px;
             padding: 10px 20px;
@@ -37,12 +38,12 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
+        
         .modal .confirm {
             background-color: #28a745;
             color: white;
         }
-
+        
         .modal .cancel {
             background-color: #dc3545;
             color: white;
@@ -53,18 +54,18 @@
 <body>
     <div class="container">
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar_user">
             <div class="logo">
-                <img src="/Images/HotelKu.png" alt="Hotel Logo">
+                <img src="/image/HotelKu.png" alt="Hotel Logo">
             </div>
             <div class="nav-items">
-                <a href="dashboard.html" class="nav-item">
+                <a href="dashboard_user.html" class="nav-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="reservations.html" class="nav-item">
+                <a href="reservations_user.html" class="nav-item">
                     <i class="fas fa-calendar-check"></i> Reservasi
                 </a>
-                <a href="payments.html" class="nav-item active">
+                <a href="payments_user.html" class="nav-item active">
                     <i class="fas fa-credit-card"></i> Pembayaran
                 </a>
                 <a href="profile.html" class="nav-item">
@@ -82,7 +83,7 @@
             <div class="header">
                 <h1>Pembayaran</h1>
                 <div class="user-info">
-                    <img src="Images/Person.png" alt="User Profile">
+                    <img src="image/Person.png" alt="User Profile">
                     <span>Nama Pengguna</span>
                 </div>
             </div>
@@ -164,7 +165,7 @@
             let selectedOption = reservation.options[reservation.selectedIndex];
             let amount = selectedOption.getAttribute("data-amount");
 
-            document.getElementById("payment-details").innerText = 
+            document.getElementById("payment-details").innerText =
                 `Anda akan membayar Rp ${parseInt(amount).toLocaleString()} dengan ${method}. Lanjutkan?`;
 
             document.getElementById("payment-modal").style.display = "flex";
@@ -219,4 +220,5 @@
     </script>
 
 </body>
+
 </html>

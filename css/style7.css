@@ -83,7 +83,7 @@ body {
 
 /* Sidebar dengan Desain Baru */
 
-.sidebar {
+.sidebar_user {
     width: var(--sidebar-width);
     background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
     position: fixed;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style4.css">
     <style>
         /* Enhanced styles for logout page */
+        
         .logout-card {
             text-align: center;
             padding: 2rem;
@@ -97,8 +98,14 @@
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .session-container {
@@ -189,13 +196,13 @@
                 <img src="/image/HotelKu.png" alt="Hotel Logo">
             </div>
             <div class="nav-items">
-                <a href="dashboard.html" class="nav-item">
+                <a href="dashboard_user.html" class="nav-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="reservations.html" class="nav-item">
+                <a href="reservations_user.html" class="nav-item">
                     <i class="fas fa-calendar-check"></i> Reservasi
                 </a>
-                <a href="payments.html" class="nav-item">
+                <a href="payments_user.html" class="nav-item">
                     <i class="fas fa-credit-card"></i> Pembayaran
                 </a>
                 <a href="profile.html" class="nav-item">
@@ -227,7 +234,7 @@
                         </div>
                         <h2>Konfirmasi Keluar</h2>
                         <p>Apakah Anda yakin ingin keluar dari akun Anda? Semua sesi aktif Anda akan berakhir dan Anda harus login kembali untuk mengakses akun Anda.</p>
-                        
+
                         <div class="btn-group">
                             <a href="dashboard.html" class="btn btn-cancel">
                                 <i class="fas fa-arrow-left"></i> Batal
@@ -236,7 +243,7 @@
                                 <i class="fas fa-sign-out-alt"></i> Keluar
                             </a>
                         </div>
-                        
+
                         <div id="countdown" class="countdown">
                             <i class="fas fa-clock"></i> Anda akan dialihkan ke halaman login dalam <span id="seconds">5</span> detik.
                         </div>
@@ -276,28 +283,28 @@
         function logout() {
             // Show countdown
             document.getElementById('countdown').style.display = 'block';
-            
+
             // Disable logout button
             document.querySelector('.btn-logout').style.pointerEvents = 'none';
             document.querySelector('.btn-logout').style.opacity = '0.7';
-            
+
             // Start countdown
             let seconds = 5;
             const countdownInterval = setInterval(function() {
                 seconds--;
                 document.getElementById('seconds').textContent = seconds;
-                
+
                 if (seconds <= 0) {
                     clearInterval(countdownInterval);
                     // Redirect to login page
                     window.location.href = 'login.html';
                 }
             }, 1000);
-            
+
             // Simulate logout by clearing any session data
             localStorage.removeItem('user');
             sessionStorage.removeItem('user');
-            
+
             // For demo purposes, we're just redirecting after the countdown
             setTimeout(function() {
                 window.location.href = 'login.html';
