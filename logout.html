@@ -1,309 +1,64 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keluar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style4.css">
-    <style>
-        /* Enhanced styles for logout page */
-        .logout-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 12px;
-            background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .logout-icon {
-            font-size: 3.5rem;
-            color: #ff6b6b;
-            margin-bottom: 1.5rem;
-            background: rgba(255, 107, 107, 0.1);
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4);
-            }
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
-            }
-        }
-        
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .btn-cancel {
-            background-color: #f1f3f5;
-            color: #495057;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-cancel:hover {
-            background-color: #e9ecef;
-            transform: translateY(-2px);
-        }
-        
-        .btn-logout {
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-logout:hover {
-            background-color: #fa5252;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(250, 82, 82, 0.3);
-        }
-        
-        .countdown {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            font-weight: 500;
-            color: #495057;
-            border-left: 4px solid #4dabf7;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .session-container {
-            margin-top: 2rem;
-        }
-        
-        .active-session {
-            padding: 0.5rem;
-        }
-        
-        .session-item {
-            display: flex;
-            align-items: center;
-            padding: 1.2rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            background-color: #ffffff;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-        }
-        
-        .session-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-        }
-        
-        .session-icon {
-            background-color: #e7f5ff;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: #339af0;
-            font-size: 1.2rem;
-        }
-        
-        .session-details {
-            flex: 1;
-        }
-        
-        .current-session {
-            background-color: #e9ecef;
-            color: #495057;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .card-header h2 {
-            margin: 0;
-            font-size: 1.4rem;
-            color: #343a40;
-        }
-        
-        .card {
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .card:hover {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="/image/HotelKu.png" alt="Hotel Logo">
-            </div>
-            <div class="nav-items">
-                <a href="dashboard.html" class="nav-item">
-                    <i class="fas fa-home"></i> Dashboard
-                </a>
-                <a href="reservations.html" class="nav-item">
-                    <i class="fas fa-calendar-check"></i> Reservasi
-                </a>
-                <a href="payments.html" class="nav-item">
-                    <i class="fas fa-credit-card"></i> Pembayaran
-                </a>
-                <a href="profile.html" class="nav-item">
-                    <i class="fas fa-user"></i> Profil
-                </a>
-                <a href="logout.html" class="nav-item logout-btn active">
-                    <i class="fas fa-sign-out-alt"></i> Keluar
-                </a>
-            </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="image/HotelKu.png" alt="Hotel Logo" />
+        </div>
+        <div class="nav-items">
+          <a href="dashboard.html" class="nav-item" data-page="dashboard"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
+          <a href="hotels.html" class="nav-item" data-page="hotels"> <i class="fas fa-hotel"></i> Hotel </a>
+          <a href="rooms.html" class="nav-item" data-page="rooms"> <i class="fas fa-bed"></i> Kamar </a>
+          <a href="reservations.html" class="nav-item" data-page="reservations"> <i class="fas fa-calendar-check"></i> Reservasi </a>
+          <a href="payments.html" class="nav-item" data-page="payments"> <i class="fas fa-credit-card"></i> Pembayaran </a>
+          <a href="reports.html" class="nav-item" data-page="reports"> <i class="fas fa-chart-line"></i> Laporan </a>
+          <a href="notifications.html" class="nav-item" data-page="notifications"> <i class="fas fa-bell"></i> Notifikasi & Log </a>
+          <a href="settings.html" class="nav-item" data-page="settings"> <i class="fas fa-cog"></i> Pengaturan </a>
+          <a href="reviews.html" class="nav-item" data-page="reviews"> <i class="fas fa-star"></i> Ulasan </a>
+          <a href="logout.html" class="nav-item active" data-page="logout"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+          <h1>Keluar</h1>
+          <div class="user-info">
+            <img src="image/Person.png" alt="User Profile" />
+            <span>Admin</span>
+          </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Header -->
-            <div class="header">
-                <h1>Keluar</h1>
-                <div class="user-info">
-                    <img src="/image/Person.png" alt="User Profile">
-                    <span>Nama Pengguna</span>
-                </div>
-            </div>
+        <!-- Logout Content -->
+        <div class="content-section">
+          <div class="card">
+            <div class="logout-card">
+              <div class="logout-icon">
+                <i class="fas fa-sign-out-alt"></i>
+              </div>
+              <h2>Konfirmasi Keluar</h2>
+              <p>Apakah Anda yakin ingin keluar dari akun Anda? Semua sesi aktif Anda akan berakhir dan Anda harus login kembali untuk mengakses akun Anda.</p>
 
-            <!-- Logout Content -->
-            <div class="content-section">
-                <div class="card">
-                    <div class="logout-card">
-                        <div class="logout-icon">
-                            <i class="fas fa-sign-out-alt"></i>
-                        </div>
-                        <h2>Konfirmasi Keluar</h2>
-                        <p>Apakah Anda yakin ingin keluar dari akun Anda? Semua sesi aktif Anda akan berakhir dan Anda harus login kembali untuk mengakses akun Anda.</p>
-                        
-                        <div class="btn-group">
-                            <a href="dashboard.html" class="btn btn-cancel">
-                                <i class="fas fa-arrow-left"></i> Batal
-                            </a>
-                            <a href="#" class="btn btn-logout" onclick="logout()">
-                                <i class="fas fa-sign-out-alt"></i> Keluar
-                            </a>
-                        </div>
-                        
-                        <div id="countdown" class="countdown">
-                            <i class="fas fa-clock"></i> Anda akan dialihkan ke halaman login dalam <span id="seconds">5</span> detik.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card session-container">
-                    <div class="card-header">
-                        <h2><i class="fas fa-laptop-code"></i> Sesi Aktif</h2>
-                    </div>
-                    <div class="active-session">
-                        <div class="session-item">
-                            <div class="session-icon">
-                                <i class="fas fa-laptop"></i>
-                            </div>
-                            <div class="session-details">
-                                <p><strong>Chrome - Windows</strong> <span class="current-session">Saat ini</span></p>
-                                <p style="color: #888; font-size: 14px;"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia - 24 Mar 2025, 10:45</p>
-                            </div>
-                        </div>
-                        <div class="session-item">
-                            <div class="session-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="session-details">
-                                <p><strong>Mobile App - Android</strong></p>
-                                <p style="color: #888; font-size: 14px;"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia - 23 Mar 2025, 19:30</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <div class="btn-group">
+                <a href="dashboard.html" class="btn btn-cancel"> <i class="fas fa-arrow-left"></i> Batal </a>
+                <a href="#" class="btn btn-logout" onclick="logout()"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <script>
-        function logout() {
-            // Show countdown
-            document.getElementById('countdown').style.display = 'block';
-            
-            // Disable logout button
-            document.querySelector('.btn-logout').style.pointerEvents = 'none';
-            document.querySelector('.btn-logout').style.opacity = '0.7';
-            
-            // Start countdown
-            let seconds = 5;
-            const countdownInterval = setInterval(function() {
-                seconds--;
-                document.getElementById('seconds').textContent = seconds;
-                
-                if (seconds <= 0) {
-                    clearInterval(countdownInterval);
-                    // Redirect to login page
-                    window.location.href = 'login.html';
-                }
-            }, 1000);
-            
-            // Simulate logout by clearing any session data
-            localStorage.removeItem('user');
-            sessionStorage.removeItem('user');
-            
-            // For demo purposes, we're just redirecting after the countdown
-            setTimeout(function() {
-                window.location.href = 'login.html';
-            }, 5000);
-        }
-    </script>
-</body>
-
+  </body>
 </html>

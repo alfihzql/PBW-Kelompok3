@@ -1,163 +1,90 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manajemen Hotel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="/image/HotelKu.png" alt="Hotel Logo">
-            </div>
-            <div class="nav-items">
-                <a href="dashboard.html" class="nav-item" data-page="dashboard">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                </a>
-                <a href="users.html" class="nav-item" data-page="users">
-                    <i class="fas fa-users"></i> Pengguna
-                </a>
-                <a href="hotels.html" class="nav-item" data-page="hotels">
-                    <i class="fas fa-hotel"></i> Hotel
-                </a>
-                <a href="rooms.html" class="nav-item" data-page="rooms">
-                    <i class="fas fa-bed"></i> Kamar
-                </a>
-                <a href="reservations.html" class="nav-item active" data-page="reservations">
-                    <i class="fas fa-calendar-check"></i> Reservasi
-                </a>
-                <a href="payments.html" class="nav-item" data-page="payments">
-                    <i class="fas fa-credit-card"></i> Pembayaran
-                </a>
-                <a href="reports.html" class="nav-item" data-page="reports">
-                    <i class="fas fa-chart-line"></i> Laporan
-                </a>
-                <a href="notifications.html" class="nav-item" data-page="notifications">
-                    <i class="fas fa-bell"></i> Notifikasi & Log
-                </a>
-                <a href="settings.html" class="nav-item" data-page="settings">
-                    <i class="fas fa-cog"></i> Pengaturan
-                </a>
-                <a href="reviews.html" class="nav-item" data-page="reviews">
-                    <i class="fas fa-star"></i> Ulasan
-                </a>
-                <div class="nav-item logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Keluar
-                </div>
-            </div>
+      <div id="modal-tambah-data" class="modal">
+        <div class="modal-content w-[35%] rounded-xl bg-white shadow-[0px_4px_7px_grey] flex flex-col items-center justify-center gap-5">
+          <h1 class="font-bold text-xl">Tambah Data Hotel</h1>
+          <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="hotel-name-input" placeholder="Nama Hotel" />
+          <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="address-input" placeholder="Lokasi" />
+          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="rating-input" placeholder="Rating" />
+          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="total-room-input" placeholder="Total Kamar" />
+          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="price-input" placeholder="Harga" />
+          <div class="w-full gap-5 flex justify-end items-center">
+            <button id="close-modal" class="button-modal bg-red-400 hover:scale-[1.05] duration-300">Batal</button>
+            <button id="add-data" class="button-modal bg-blue-400 hover:scale-[1.05] duration-300">Tambah</button>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="image/HotelKu.png" alt="Hotel Logo" />
+        </div>
+        <div class="nav-items">
+          <a href="dashboard.html" class="nav-item" data-page="dashboard"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
+          <a href="hotels.html" class="nav-item active" data-page="hotels"> <i class="fas fa-hotel"></i> Hotel </a>
+          <a href="rooms.html" class="nav-item" data-page="rooms"> <i class="fas fa-bed"></i> Kamar </a>
+          <a href="reservations.html" class="nav-item" data-page="reservations"> <i class="fas fa-calendar-check"></i> Reservasi </a>
+          <a href="payments.html" class="nav-item" data-page="payments"> <i class="fas fa-credit-card"></i> Pembayaran </a>
+          <a href="reports.html" class="nav-item" data-page="reports"> <i class="fas fa-chart-line"></i> Laporan </a>
+          <a href="notifications.html" class="nav-item" data-page="notifications"> <i class="fas fa-bell"></i> Notifikasi & Log </a>
+          <a href="settings.html" class="nav-item" data-page="settings"> <i class="fas fa-cog"></i> Pengaturan </a>
+          <a href="reviews.html" class="nav-item" data-page="reviews"> <i class="fas fa-star"></i> Ulasan </a>
+          <a href="logout.html" class="nav-item" data-page="logout"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <h1 class="font-bold text-3xl">Manajemen Hotel</h1>
+          <div class="user-info">
+            <img src="image/Person.png" alt="Admin Profile" />
+            <span>Admin</span>
+          </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="header">
-                <h1>Manajemen Hotel</h1>
-                <div class="user-info">
-                    <img src="image/Person.png" alt="Admin Profile">
-                    <span>Admin</span>
-                </div>
+        <div class="content-section">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-header-top">
+                <div class="card-title">Daftar Hotel</div>
+                <button class="btn btn-primary" id="add-hotel-btn"><i class="fas fa-plus"></i> Tambah Hotel</button>
+              </div>
             </div>
 
-            <div class="content-section">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-header-top">
-                            <div class="card-title">Daftar Hotel</div>
-                            <button class="btn btn-primary" id="add-hotel-btn">
-                                <i class="fas fa-plus"></i> Tambah Hotel
-                            </button>
-                        </div>
-                        <div class="search-filter-container">
-                            <div class="search-box">
-                                <input type="text" id="hotel-search" class="form-control" placeholder="Cari hotel...">
-                                <i class="fas fa-search search-icon"></i>
-                            </div>
-                            <select id="room-filter" class="form-control">
-                                <option value="">Semua Kamar</option>
-                                <option value="10">10+ Kamar</option>
-                                <option value="20">20+ Kamar</option>
-                                <option value="50">50+ Kamar</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="table-container">
-                        <table class="hotel-management-table">
-                            <thead>
-                                <tr>
-                                    <th>Foto</th>
-                                    <th>Nama Hotel</th>
-                                    <th>Lokasi</th>
-                                    <th>Kamar</th>
-                                    <th>Harga</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody id="hotels-table-body">
-                                <!-- Data akan diisi via JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="table-container">
+              <table class="hotel-management-table">
+                <thead>
+                  <tr>
+                    <th>Nama Hotel</th>
+                    <th>Lokasi</th>
+                    <th>Rating</th>
+                    <th>Jumlah Kamar</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="hotels-table-body">
+                  <!-- Data akan diisi via JavaScript -->
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <!-- Hotel Modal -->
-    <div class="modal-backdrop" id="hotel-modal">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title" id="modal-title">Tambah Hotel Baru</div>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="hotel-form">
-                    <div class="form-group">
-                        <label class="form-label">Nama Hotel</label>
-                        <input type="text" class="form-control" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Alamat</label>
-                        <input type="text" class="form-control" name="address" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Deskripsi</label>
-                        <textarea class="form-control" name="description" rows="3"></textarea>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Jumlah Kamar</label>
-                            <input type="number" class="form-control" name="rooms" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Harga per Malam</label>
-                            <input type="number" class="form-control" name="price" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Fasilitas (pisahkan dengan koma)</label>
-                        <input type="text" class="form-control" name="facilities">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Foto Hotel</label>
-                        <input type="file" class="form-control" name="photo" accept="image/*">
-                        <small class="form-text">Ukuran maksimal 2MB</small>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" id="save-hotel-btn">Simpan</button>
-                <button class="btn" id="cancel-hotel-btn">Batal</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="/js/script.js"></script>
-</body>
-
+    <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
+  </body>
 </html>

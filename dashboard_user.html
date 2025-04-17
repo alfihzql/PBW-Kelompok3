@@ -1,133 +1,117 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style7.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style7.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="/Images/HotelKu.png" alt="Hotel Logo">
-            </div>
-            <div class="nav-items">
-                <a href="dashboard.html" class="nav-item active">
-                    <i class="fas fa-home"></i> Dashboard
-                </a>
-                <a href="reservations_user.html" class="nav-item">
-                    <i class="fas fa-calendar-check"></i> Reservasi
-                </a>
-                <a href="payments_user.html" class="nav-item">
-                    <i class="fas fa-credit-card"></i> Pembayaran
-                </a>
-                <a href="profile.html" class="nav-item">
-                    <i class="fas fa-user"></i> Profil
-                </a>
-                <a href="logout.html" class="nav-item logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Keluar
-                </a>
-            </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="image/HotelKu.png" alt="Hotel Logo" />
+        </div>
+        <div class="nav-items">
+          <a href="dashboard.html" class="nav-item active"> <i class="fas fa-home"></i> Dashboard </a>
+          <a href="reservations_user.html" class="nav-item"> <i class="fas fa-calendar-check"></i> Reservasi </a>
+          <a href="payments_user.html" class="nav-item"> <i class="fas fa-credit-card"></i> Pembayaran </a>
+          <a href="profile.html" class="nav-item"> <i class="fas fa-user"></i> Profil </a>
+          <a href="logout_user.html" class="nav-item logout-btn"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+          <h1>Dashboard</h1>
+          <div class="user-info">
+            <img src="image/Person.png" alt="User Profile" />
+            <span>Nama Pengguna</span>
+          </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Header -->
-            <div class="header">
-                <h1>Dashboard</h1>
-                <div class="user-info">
-                    <img src="/Images/Person.png" alt="User Profile">
-                    <span>Nama Pengguna</span>
-                </div>
+        <!-- Dashboard Content -->
+        <div class="content-section">
+          <div class="stats-container">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Reservasi Aktif</h3>
+                <div class="stat-value">89</div>
+                <div class="stat-trend positive">+10% (30d)</div>
+              </div>
             </div>
 
-            <!-- Dashboard Content -->
-            <div class="content-section">
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Reservasi Aktif</h3>
-                            <div class="stat-value">89</div>
-                            <div class="stat-trend positive">+10% (30d)</div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Total Pembayaran</h3>
-                            <div class="stat-value">Rp 182.5jt</div>
-                            <div class="stat-trend positive">+23% (bulan lalu)</div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-bell"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Notifikasi Baru</h3>
-                            <div class="stat-value">5</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recent Reservations -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Reservasi Terbaru</h2>
-                        <button class="btn btn-primary btn-xs" onclick="window.location.href='reservations.html'">
-                            Lihat Semua <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div class="table-container">
-                        <table class="reservations-table">
-                            <thead>
-                                <tr>
-                                    <th>ID Reservasi</th>
-                                    <th>Hotel</th>
-                                    <th>Tanggal</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#12345</td>
-                                    <td>Hotel Mawar</td>
-                                    <td>15 Maret 2025</td>
-                                    <td><span class="status-badge new">Baru</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#12346</td>
-                                    <td>Hotel Melati</td>
-                                    <td>20 Maret 2025</td>
-                                    <td><span class="status-badge confirmed">Dikonfirmasi</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#12347</td>
-                                    <td>Hotel Anggrek</td>
-                                    <td>25 Maret 2025</td>
-                                    <td><span class="status-badge cancelled">Dibatalkan</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Total Pembayaran</h3>
+                <div class="stat-value">Rp 182.5jt</div>
+                <div class="stat-trend positive">+23% (bulan lalu)</div>
+              </div>
             </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-bell"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Notifikasi Baru</h3>
+                <div class="stat-value">5</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Reservations -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Reservasi Terbaru</h2>
+              <button class="btn btn-primary btn-xs" onclick="window.location.href='reservations.html'">Lihat Semua <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="table-container">
+              <table class="reservations-table">
+                <thead>
+                  <tr>
+                    <th>ID Reservasi</th>
+                    <th>Hotel</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#12345</td>
+                    <td>Hotel Mawar</td>
+                    <td>15 Maret 2025</td>
+                    <td><span class="status-badge new">Baru</span></td>
+                  </tr>
+                  <tr>
+                    <td>#12346</td>
+                    <td>Hotel Melati</td>
+                    <td>20 Maret 2025</td>
+                    <td><span class="status-badge confirmed">Dikonfirmasi</span></td>
+                  </tr>
+                  <tr>
+                    <td>#12347</td>
+                    <td>Hotel Anggrek</td>
+                    <td>25 Maret 2025</td>
+                    <td><span class="status-badge cancelled">Dibatalkan</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>

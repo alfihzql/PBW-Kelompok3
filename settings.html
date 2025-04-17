@@ -1,161 +1,136 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pengaturan Sistem</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="/image/HotelKu.png" alt="Hotel Logo">
-            </div>
-            <div class="nav-items">
-                <a href="dashboard.html" class="nav-item" data-page="dashboard">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                </a>
-                <a href="users.html" class="nav-item" data-page="users">
-                    <i class="fas fa-users"></i> Pengguna
-                </a>
-                <a href="hotels.html" class="nav-item" data-page="hotels">
-                    <i class="fas fa-hotel"></i> Hotel
-                </a>
-                <a href="rooms.html" class="nav-item" data-page="rooms">
-                    <i class="fas fa-bed"></i> Kamar
-                </a>
-                <a href="reservations.html" class="nav-item" data-page="reservations">
-                    <i class="fas fa-calendar-check"></i> Reservasi
-                </a>
-                <a href="payments.html" class="nav-item" data-page="payments">
-                    <i class="fas fa-credit-card"></i> Pembayaran
-                </a>
-                <a href="reports.html" class="nav-item" data-page="reports">
-                    <i class="fas fa-chart-line"></i> Laporan
-                </a>
-                <a href="notifications.html" class="nav-item" data-page="notifications">
-                    <i class="fas fa-bell"></i> Notifikasi & Log
-                </a>
-                <a href="settings.html" class="nav-item active" data-page="settings">
-                    <i class="fas fa-cog"></i> Pengaturan
-                </a>
-                <a href="reviews.html" class="nav-item" data-page="reviews">
-                    <i class="fas fa-star"></i> Ulasan
-                </a>
-                <div class="nav-item logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Keluar
-                </div>
-            </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="image/HotelKu.png" alt="Hotel Logo" />
+        </div>
+        <div class="nav-items">
+          <a href="dashboard.html" class="nav-item" data-page="dashboard"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
+          <a href="hotels.html" class="nav-item" data-page="hotels"> <i class="fas fa-hotel"></i> Hotel </a>
+          <a href="rooms.html" class="nav-item" data-page="rooms"> <i class="fas fa-bed"></i> Kamar </a>
+          <a href="reservations.html" class="nav-item" data-page="reservations"> <i class="fas fa-calendar-check"></i> Reservasi </a>
+          <a href="payments.html" class="nav-item" data-page="payments"> <i class="fas fa-credit-card"></i> Pembayaran </a>
+          <a href="reports.html" class="nav-item" data-page="reports"> <i class="fas fa-chart-line"></i> Laporan </a>
+          <a href="notifications.html" class="nav-item" data-page="notifications"> <i class="fas fa-bell"></i> Notifikasi & Log </a>
+          <a href="settings.html" class="nav-item active" data-page="settings"> <i class="fas fa-cog"></i> Pengaturan </a>
+          <a href="reviews.html" class="nav-item" data-page="reviews"> <i class="fas fa-star"></i> Ulasan </a>
+          <a href="logout.html" class="nav-item" data-page="logout"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <h1>Pengaturan Sistem</h1>
+          <div class="user-info">
+            <img src="image/Person.png" alt="Admin Profile" />
+            <span>Admin</span>
+          </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="header">
-                <h1>Pengaturan Sistem</h1>
-                <div class="user-info">
-                    <img src="image/Person.png" alt="Admin Profile">
-                    <span>Admin</span>
-                </div>
+        <div class="content-section">
+          <!-- Kelola Peran & Hak Akses Admin -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Kelola Peran & Hak Akses Admin</h2>
             </div>
-
-            <div class="content-section">
-                <!-- Kelola Peran & Hak Akses Admin -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Kelola Peran & Hak Akses Admin</h2>
-                    </div>
-                    <div class="card-body">
-                        <table class="settings-table">
-                            <thead>
-                                <tr>
-                                    <th>Nama Admin</th>
-                                    <th>Peran</th>
-                                    <th>Hak Akses</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Admin 1</td>
-                                    <td>Super Admin</td>
-                                    <td>Full Access</td>
-                                    <td>
-                                        <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                                        <button class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Admin 2</td>
-                                    <td>Manager</td>
-                                    <td>Manage Reservations</td>
-                                    <td>
-                                        <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                                        <button class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Tambah Admin</button>
-                    </div>
-                </div>
-
-                <!-- Pengaturan Harga Kamar & Diskon -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Pengaturan Harga Kamar & Diskon</h2>
-                    </div>
-                    <div class="card-body">
-                        <form class="price-discount-form">
-                            <div class="form-group">
-                                <label for="room-type">Tipe Kamar</label>
-                                <select id="room-type" class="form-control">
-                                    <option value="standard">Standard</option>
-                                    <option value="deluxe">Deluxe</option>
-                                    <option value="suite">Suite</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Harga per Malam (Rp)</label>
-                                <input type="number" id="price" class="form-control" placeholder="Masukkan harga">
-                            </div>
-                            <div class="form-group">
-                                <label for="discount">Diskon (%)</label>
-                                <input type="number" id="discount" class="form-control" placeholder="Masukkan diskon">
-                            </div>
-                            <button type="submit" class="btn-save"><i class="fas fa-save"></i> Simpan Perubahan</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Konfigurasi Email/SMS Notifikasi -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Konfigurasi Email/SMS Notifikasi</h2>
-                    </div>
-                    <div class="card-body">
-                        <form class="notification-settings-form">
-                            <div class="form-group">
-                                <label for="email-notification">Email Notifikasi</label>
-                                <input type="email" id="email-notification" class="form-control" placeholder="Masukkan email">
-                            </div>
-                            <div class="form-group">
-                                <label for="sms-notification">SMS Notifikasi</label>
-                                <input type="text" id="sms-notification" class="form-control" placeholder="Masukkan nomor SMS">
-                            </div>
-                            <button type="submit" class="btn-save"><i class="fas fa-save"></i> Simpan Perubahan</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="card-body">
+              <table class="settings-table">
+                <thead>
+                  <tr>
+                    <th>Nama Admin</th>
+                    <th>Peran</th>
+                    <th>Hak Akses</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Admin 1</td>
+                    <td>Super Admin</td>
+                    <td>Full Access</td>
+                    <td>
+                      <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
+                      <button class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Admin 2</td>
+                    <td>Manager</td>
+                    <td>Manage Reservations</td>
+                    <td>
+                      <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
+                      <button class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn-add"><i class="fas fa-plus"></i> Tambah Admin</button>
             </div>
+          </div>
+
+          <!-- Pengaturan Harga Kamar & Diskon -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Pengaturan Harga Kamar & Diskon</h2>
+            </div>
+            <div class="card-body">
+              <form class="price-discount-form">
+                <div class="form-group">
+                  <label for="room-type">Tipe Kamar</label>
+                  <select id="room-type" class="form-control">
+                    <option value="standard">Standard</option>
+                    <option value="deluxe">Deluxe</option>
+                    <option value="suite">Suite</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="price">Harga per Malam (Rp)</label>
+                  <input type="number" id="price" class="form-control" placeholder="Masukkan harga" />
+                </div>
+                <div class="form-group">
+                  <label for="discount">Diskon (%)</label>
+                  <input type="number" id="discount" class="form-control" placeholder="Masukkan diskon" />
+                </div>
+                <button type="submit" class="btn-save"><i class="fas fa-save"></i> Simpan Perubahan</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Konfigurasi Email/SMS Notifikasi -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Konfigurasi Email/SMS Notifikasi</h2>
+            </div>
+            <div class="card-body">
+              <form class="notification-settings-form">
+                <div class="form-group">
+                  <label for="email-notification">Email Notifikasi</label>
+                  <input type="email" id="email-notification" class="form-control" placeholder="Masukkan email" />
+                </div>
+                <div class="form-group">
+                  <label for="sms-notification">SMS Notifikasi</label>
+                  <input type="text" id="sms-notification" class="form-control" placeholder="Masukkan nomor SMS" />
+                </div>
+                <button type="submit" class="btn-save"><i class="fas fa-save"></i> Simpan Perubahan</button>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>

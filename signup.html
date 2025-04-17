@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | HotelKu</title>
+    <link rel="stylesheet" href="css/style1.css" />
+    <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/c993b649e8.js"></script>
+  </head>
+  <body class="res-log-body">
+    <a href="index.html"><i class="fa fa-arrow-left"></i></a>
+    <br />
+    <div class="container" id="container">
+      <div class="form-box signin">
+        <div>
+          <h1>Sign Up</h1>
+          <div class="input-box">
+            <input id="fullname" type="text" placeholder="Fullname" required />
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="input-box">
+            <input id="username" type="text" placeholder="Username" required />
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="input-box">
+            <input id="email" type="email" placeholder="Email" required />
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input id="password" type="password" placeholder="Password" required />
+            <i class="fas fa-key"></i>
+          </div>
+          <div class="input-box">
+            <input id="callnumber" type="number" placeholder="Callnumber" required />
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="input-box">
+            <input id="address" type="text" placeholder="Address" required />
+            <i class="fas fa-bed"></i>
+          </div>
+          <div class="res-log-txt">
+            <a href="login.html">Sudah Punya Akun</a>
+          </div>
+          <button id="signinbutton" class="res-log-btn">Sign Up <i class="fas fa-right-to-bracket"></i></button>
+        </div>
+      </div>
+
+      <div class="toggle-box hideOnMobile">
+        <div class="toggle-panel toggle-left">
+          <h1>Selamat Datang di HotelKu!</h1>
+        </div>
+      </div>
+    </div>
+    <script src="service/auth/register.js"></script>
+  </body>
+</html>

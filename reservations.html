@@ -1,219 +1,118 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manajemen Reservasi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="/image/HotelKu.png" alt="Hotel Logo">
-            </div>
-            <div class="nav-items">
-                <a href="dashboard.html" class="nav-item" data-page="dashboard">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                </a>
-                <a href="users.html" class="nav-item" data-page="users">
-                    <i class="fas fa-users"></i> Pengguna
-                </a>
-                <a href="hotels.html" class="nav-item" data-page="hotels">
-                    <i class="fas fa-hotel"></i> Hotel
-                </a>
-                <a href="rooms.html" class="nav-item" data-page="rooms">
-                    <i class="fas fa-bed"></i> Kamar
-                </a>
-                <a href="reservations.html" class="nav-item active" data-page="reservations">
-                    <i class="fas fa-calendar-check"></i> Reservasi
-                </a>
-                <a href="payments.html" class="nav-item" data-page="payments">
-                    <i class="fas fa-credit-card"></i> Pembayaran
-                </a>
-                <a href="reports.html" class="nav-item" data-page="reports">
-                    <i class="fas fa-chart-line"></i> Laporan
-                </a>
-                <a href="notifications.html" class="nav-item" data-page="notifications">
-                    <i class="fas fa-bell"></i> Notifikasi & Log
-                </a>
-                <a href="settings.html" class="nav-item" data-page="settings">
-                    <i class="fas fa-cog"></i> Pengaturan
-                </a>
-                <a href="reviews.html" class="nav-item" data-page="reviews">
-                    <i class="fas fa-star"></i> Ulasan
-                </a>
-                <div class="nav-item logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Keluar
-                </div>
-            </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="image/HotelKu.png" alt="Hotel Logo" />
+        </div>
+        <div class="nav-items">
+          <a href="dashboard.html" class="nav-item" data-page="dashboard"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
+          <a href="hotels.html" class="nav-item" data-page="hotels"> <i class="fas fa-hotel"></i> Hotel </a>
+          <a href="rooms.html" class="nav-item" data-page="rooms"> <i class="fas fa-bed"></i> Kamar </a>
+          <a href="reservations.html" class="nav-item active" data-page="reservations"> <i class="fas fa-calendar-check"></i> Reservasi </a>
+          <a href="payments.html" class="nav-item" data-page="payments"> <i class="fas fa-credit-card"></i> Pembayaran </a>
+          <a href="reports.html" class="nav-item" data-page="reports"> <i class="fas fa-chart-line"></i> Laporan </a>
+          <a href="notifications.html" class="nav-item" data-page="notifications"> <i class="fas fa-bell"></i> Notifikasi & Log </a>
+          <a href="settings.html" class="nav-item" data-page="settings"> <i class="fas fa-cog"></i> Pengaturan </a>
+          <a href="reviews.html" class="nav-item" data-page="reviews"> <i class="fas fa-star"></i> Ulasan </a>
+          <a href="logout.html" class="nav-item" data-page="logout"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <h1>Manajemen Reservasi</h1>
+          <div class="user-info">
+            <img src="image/Person.png" alt="Admin Profile" />
+            <span>Admin</span>
+          </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="header">
-                <h1>Manajemen Reservasi</h1>
-                <div class="user-info">
-                    <img src="image/Person.png" alt="Admin Profile">
-                    <span>Admin</span>
-                </div>
+        <div class="content-section">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-header-top">
+                <div class="card-title">Daftar Reservasi</div>
+                <button class="btn btn-primary" id="add-reservation-btn"><i class="fas fa-plus"></i> Tambah Reservasi</button>
+              </div>
             </div>
 
-            <div class="content-section">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-header-top">
-                            <div class="card-title">Daftar Reservasi</div>
-                        </div>
-                        <div class="search-filter-container">
-                            <div class="search-box">
-                                <input type="text" id="reservation-search" class="form-control" placeholder="Cari reservasi...">
-                                <i class="fas fa-search search-icon"></i>
-                            </div>
-                            <select id="status-filter" class="form-control">
-                                <option value="">Semua Status</option>
-                                <option value="pending">Pending</option>
-                                <option value="dikonfirmasi">Dikonfirmasi</option>
-                                <option value="check-in">Check-in</option>
-                                <option value="check-out">Check-out</option>
-                                <option value="dibatalkan">Dibatalkan</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="table-container">
-                        <table class="reservation-management-table">
-                            <thead>
-                                <tr>
-                                    <th>ID Reservasi</th>
-                                    <th>Nama Tamu</th>
-                                    <th>Hotel</th>
-                                    <th>Check-in</th>
-                                    <th>Check-out</th>
-                                    <th>Status</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody id="reservations-table-body">
-                                <!-- Data dummy untuk tabel reservasi -->
-                                <tr>
-                                    <td>#12345</td>
-                                    <td>John Doe</td>
-                                    <td>Hotel A</td>
-                                    <td>2023-10-01</td>
-                                    <td>2023-10-05</td>
-                                    <td><span class="status-badge pending">Pending</span></td>
-                                    <td>
-                                        <button class="btn btn-view">Lihat</button>
-                                        <button class="btn btn-edit">Edit</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#12346</td>
-                                    <td>Jane Smith</td>
-                                    <td>Hotel B</td>
-                                    <td>2023-10-02</td>
-                                    <td>2023-10-06</td>
-                                    <td><span class="status-badge dikonfirmasi">Dikonfirmasi</span></td>
-                                    <td>
-                                        <button class="btn btn-view">Lihat</button>
-                                        <button class="btn btn-edit">Edit</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#12347</td>
-                                    <td>Alice Johnson</td>
-                                    <td>Hotel C</td>
-                                    <td>2023-10-03</td>
-                                    <td>2023-10-07</td>
-                                    <td><span class="status-badge check-in">Check-in</span></td>
-                                    <td>
-                                        <button class="btn btn-view">Lihat</button>
-                                        <button class="btn btn-edit">Edit</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#12348</td>
-                                    <td>Bob Brown</td>
-                                    <td>Hotel D</td>
-                                    <td>2023-10-04</td>
-                                    <td>2023-10-08</td>
-                                    <td><span class="status-badge check-out">Check-out</span></td>
-                                    <td>
-                                        <button class="btn btn-view">Lihat</button>
-                                        <button class="btn btn-edit">Edit</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#12349</td>
-                                    <td>Charlie Davis</td>
-                                    <td>Hotel E</td>
-                                    <td>2023-10-05</td>
-                                    <td>2023-10-09</td>
-                                    <td><span class="status-badge dibatalkan">Dibatalkan</span></td>
-                                    <td>
-                                        <button class="btn btn-view">Lihat</button>
-                                        <button class="btn btn-edit">Edit</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="table-container">
+              <table class="reservation-management-table">
+                <thead>
+                  <tr>
+                    <th>Nama Tamu</th>
+                    <th>Hotel</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="reservations-table-body"></tbody>
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Reservation Detail Modal -->
     <div class="modal-backdrop" id="detail-modal">
-        <div class="modal modal-lg">
-            <div class="modal-header">
-                <div class="modal-title">Detail Reservasi</div>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="reservation-detail">
-                    <div class="detail-row">
-                        <div class="detail-label">ID Reservasi:</div>
-                        <div class="detail-value" id="detail-id"></div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Nama Tamu:</div>
-                        <div class="detail-value" id="detail-name"></div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Kontak:</div>
-                        <div class="detail-value" id="detail-contact"></div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Jumlah Tamu:</div>
-                        <div class="detail-value" id="detail-guests"></div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Permintaan Khusus:</div>
-                        <div class="detail-value" id="detail-requests"></div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">Status:</div>
-                        <div class="detail-value">
-                            <span class="status-badge" id="detail-status"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success" id="confirm-btn">Konfirmasi</button>
-                <button class="btn btn-danger" id="cancel-btn">Batalkan</button>
-                <!-- <button class="btn" id="close-detail">Tutup</button> -->
-            </div>
+      <div class="modal modal-lg">
+        <div class="modal-header">
+          <div class="modal-title">Detail Reservasi</div>
+          <button class="close-modal">&times;</button>
         </div>
+        <div class="modal-body">
+          <div class="reservation-detail">
+            <div class="detail-row">
+              <div class="detail-label">ID Reservasi:</div>
+              <div class="detail-value" id="detail-id"></div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Nama Tamu:</div>
+              <div class="detail-value" id="detail-name"></div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Kontak:</div>
+              <div class="detail-value" id="detail-contact"></div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Jumlah Tamu:</div>
+              <div class="detail-value" id="detail-guests"></div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Permintaan Khusus:</div>
+              <div class="detail-value" id="detail-requests"></div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-label">Status:</div>
+              <div class="detail-value">
+                <span class="status-badge" id="detail-status"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" id="confirm-btn">Konfirmasi</button>
+          <button class="btn btn-danger" id="cancel-btn">Batalkan</button>
+          <!-- <button class="btn" id="close-detail">Tutup</button> -->
+        </div>
+      </div>
     </div>
 
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>
