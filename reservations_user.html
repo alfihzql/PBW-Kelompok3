@@ -59,6 +59,59 @@
         background-color: #dc3545;
         color: white;
       }
+        /* Modal Style */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .modal.show .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .modal button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .modal .confirm {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .modal .cancel {
+            background-color: #dc3545;
+            color: white;
+        }
     </style>
   </head>
 
@@ -77,6 +130,29 @@
           <a href="logout_user.html" class="nav-item logout-btn"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
         </div>
       </div>
+        <!-- Sidebar -->
+        <div class="sidebar_user">
+            <div class="logo">
+                <img src="/image/HotelKu.png" alt="Hotel Logo">
+            </div>
+            <div class="nav-items">
+                <a href="dashboard_user.html" class="nav-item">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="reservations_user.html" class="nav-item active">
+                    <i class="fas fa-calendar-check"></i> Reservasi
+                </a>
+                <a href="payments_user.html" class="nav-item">
+                    <i class="fas fa-credit-card"></i> Pembayaran
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user"></i> Profil
+                </a>
+                <a href="logout.html" class="nav-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </a>
+            </div>
+        </div>
 
       <!-- Main Content -->
       <div class="main-content">
@@ -88,6 +164,16 @@
             <span>Nama Pengguna</span>
           </div>
         </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Reservasi Saya</h1>
+                <div class="user-info">
+                    <img src="/image/Person.png" alt="User Profile">
+                    <span>Nama Pengguna</span>
+                </div>
+            </div>
 
         <!-- Konten Reservasi -->
         <div class="content-section">
@@ -177,6 +263,8 @@
         }
 
         document.getElementById("reservation-details").innerText = `Anda akan memesan kamar di ${hotel} dari ${checkin} hingga ${checkout}. Lanjutkan?`;
+            document.getElementById("reservation-details").innerText =
+                `Anda akan memesan kamar di ${hotel} dari ${checkin} hingga ${checkout}. Lanjutkan?`;
 
         document.getElementById("reservation-modal").classList.add("show");
       });
@@ -228,4 +316,7 @@
       window.onload = renderReservations;
     </script>
   </body>
+
+</body>
+
 </html>
