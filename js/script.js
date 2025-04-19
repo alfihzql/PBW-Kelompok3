@@ -283,6 +283,7 @@ function initUsers() {
 
   updateUsersTable();
 }
+
 // Fungsi untuk Manajemen Hotel
 async function initHotels() {
   console.log("Initializing Hotels Management");
@@ -315,7 +316,88 @@ async function initHotels() {
   function mappingDeleteButtonFunction() {
     try {
       hotels.map((hotel, i) => {
-        document.getElementById(hotel._id).addEventListener("click", async () => deleteHotel(hotel._id));
+        document.getElementById("delete-" + hotel._id).addEventListener("click", async () => deleteHotel(hotel._id));
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // async function updateHotel(id) {
+  //   const response = await fetch("http://localhost:3001/hotel/updateHotel/" + id, {
+  //     method: "PATCH",
+  //   });
+  //   const res = await response.json();
+  //   console.log(res);
+  //   window.location.href = window.location.href;
+  // }
+
+  const handleCheckInput = (hotelName, address, rating, totalRoom, price) => {
+    const isFullfilled = hotelName !== "" || address !== "" || rating !== "" || totalRoom !== "" || price !== "";
+    return isFullfilled;
+  };
+
+  const handleOpenModal = (id) => {
+    const modal = document.getElementById("modal-edit-data");
+    const toggleOpenModal = document.getElementById("edit-" + id).addEventListener("click", () => {
+      if (modalCondition === "close") {
+        modal.style.display = "flex";
+        modalCondition = "open";
+      } else {
+        modal.style.display = "none";
+        modalCondition = "close";
+      }
+    });
+
+    const toggleCloseModal = document.getElementById("close-modal-edit").addEventListener("click", () => {
+      modal.style.display = "none";
+      modalCondition = "close";
+    });
+
+    const addDataButton = document.getElementById("add-data-edit").addEventListener("click", async () => {
+      let hotelName = document.getElementById("hotel-name").value;
+      let address = document.getElementById("address").value;
+      let rating = document.getElementById("rating").value;
+      let totalRoom = document.getElementById("total-room").value;
+      let price = document.getElementById("price").value;
+
+      if (!handleCheckInput(hotelName, address, rating, totalRoom, price)) return alert("Isi semua inputan");
+
+      const response = await fetch("http://localhost:3001/hotel/updateHotel/" + id, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          hotelName: hotelName,
+          address: address,
+          rating: +rating,
+          totalRoom: +totalRoom,
+          price: +price,
+        }),
+      });
+
+      const res = await response.json();
+
+      if (res.status === 201) {
+        hotelName = "";
+        address = "";
+        rating = "";
+        totalRoom = "";
+        price = "";
+        modal.style.display = "none";
+        modalCondition = "close";
+        window.location.href = window.location.href;
+      } else {
+        alert(res.message);
+      }
+    });
+  };
+
+  function mappingUpdateButtonFunction() {
+    try {
+      hotels.map((hotel, i) => {
+        document.getElementById("edit-" + hotel._id).addEventListener("click", async () => handleOpenModal(hotel._id));
       });
     } catch (error) {
       console.log(error);
@@ -338,10 +420,10 @@ async function initHotels() {
                         <button class="btn btn-primary view-room-btn" data-id="${hotel._id}">
                           <i class="fas fa-door-open"></i> Lihat Kamar
                         </button>
-                        <button class="btn btn-warning edit-hotel-btn" data-id="${hotel._id}">
+                        <button class="btn btn-warning edit-hotel-btn" id="edit-${hotel._id}">
                             <i class="fas fa-edit"></i> Edit
                         </button>
-                        <button class="btn btn-danger delete-hotel-btn" id="${hotel._id}">
+                        <button class="btn btn-danger delete-hotel-btn" id="delete-${hotel._id}">
                             <i class="fas fa-trash"></i> Hapus
                         </button>
                     </td>
@@ -382,48 +464,49 @@ async function initHotels() {
   // }
 
   // Event listener untuk tombol "Edit" dan "Hapus"
-  const hotelsSection = document.querySelector("#hotels-section");
-  if (hotelsSection) {
-    hotelsSection.addEventListener("click", function (e) {
-      const btn = e.target.closest("button");
-      if (!btn) return;
+  // const hotelsSection = document.querySelector("#hotels-section");
+  // if (hotelsSection) {
+  //   hotelsSection.addEventListener("click", function (e) {
+  //     const btn = e.target.closest("button");
+  //     if (!btn) return;
 
-      const hotelId = parseInt(btn.dataset.id);
-      const hotel = hotels.find((h) => h.id === hotelId);
+  //     const hotelId = parseInt(btn.dataset.id);
+  //     const hotel = hotels.find((h) => h.id === hotelId);
 
-      if (btn.classList.contains("view-room-btn")) {
-        // 🔽 Arahkan ke halaman rooms.html
-        window.location.href = `rooms.html?id=${hotelId}`;
-      } else if (btn.classList.contains("edit-hotel-btn")) {
-        const newName = prompt("Masukkan nama baru:", hotel.name);
-        const newLocation = prompt("Masukkan lokasi baru:", hotel.location);
-        const newRating = prompt("Masukkan rating baru:", hotel.rating);
-        const newRoomCount = prompt("Masukkan jumlah kamar baru:", hotel.roomCount);
-        const newPrice = prompt("Masukkan harga baru:", hotel.price);
+  //     if (btn.classList.contains("view-room-btn")) {
+  //       // 🔽 Arahkan ke halaman rooms.html
+  //       window.location.href = `rooms.html?id=${hotelId}`;
+  //     } else if (btn.classList.contains("edit-hotel-btn")) {
+  //       const newName = prompt("Masukkan nama baru:", hotel.name);
+  //       const newLocation = prompt("Masukkan lokasi baru:", hotel.location);
+  //       const newRating = prompt("Masukkan rating baru:", hotel.rating);
+  //       const newRoomCount = prompt("Masukkan jumlah kamar baru:", hotel.roomCount);
+  //       const newPrice = prompt("Masukkan harga baru:", hotel.price);
 
-        if (newName && newLocation && newRating) {
-          hotel.name = newName;
-          hotel.location = newLocation;
-          hotel.rating = newRating;
-          hotel.roomCount = newRoomCount;
-          hotel.price = newPrice;
-          saveData();
-          updateHotelsTable();
-          alert("Hotel berhasil diperbarui!");
-        }
-      } else if (btn.classList.contains("delete-hotel-btn")) {
-        if (confirm("Apakah Anda yakin ingin menghapus hotel ini?")) {
-          hotels = hotels.filter((h) => h.id !== hotelId);
-          saveData();
-          updateHotelsTable();
-          alert("Hotel berhasil dihapus!");
-        }
-      }
-    });
-  }
+  //       if (newName && newLocation && newRating) {
+  //         hotel.name = newName;
+  //         hotel.location = newLocation;
+  //         hotel.rating = newRating;
+  //         hotel.roomCount = newRoomCount;
+  //         hotel.price = newPrice;
+  //         saveData();
+  //         updateHotelsTable();
+  //         alert("Hotel berhasil diperbarui!");
+  //       }
+  //     } else if (btn.classList.contains("delete-hotel-btn")) {
+  //       if (confirm("Apakah Anda yakin ingin menghapus hotel ini?")) {
+  //         hotels = hotels.filter((h) => h.id !== hotelId);
+  //         saveData();
+  //         updateHotelsTable();
+  //         alert("Hotel berhasil dihapus!");
+  //       }
+  //     }
+  //   });
+  // }
 
   updateHotelsTable();
   mappingDeleteButtonFunction();
+  mappingUpdateButtonFunction();
 }
 
 // Fungsi Ambil ID Hotel dari URL
