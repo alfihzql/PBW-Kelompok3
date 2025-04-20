@@ -288,7 +288,7 @@ function initUsers() {
 async function initHotels() {
   console.log("Initializing Hotels Management");
   try {
-    const response = await fetch("http://backend-hotel-blush.vercel.app/hotel/getAllHotels", {
+    const response = await fetch("https://backend-hotel-blush.vercel.app/hotel/getAllHotels", {
       method: "GET",
     });
 
@@ -305,7 +305,7 @@ async function initHotels() {
   }
 
   async function deleteHotel(id) {
-    const response = await fetch("http://backend-hotel-blush.vercel.app/hotel/deleteHotel/" + id, {
+    const response = await fetch("https://backend-hotel-blush.vercel.app/hotel/deleteHotel/" + id, {
       method: "DELETE",
     });
     const res = await response.json();
@@ -363,7 +363,7 @@ async function initHotels() {
 
       if (!handleCheckInput(hotelName, address, rating, totalRoom, price)) return alert("Isi semua inputan");
 
-      const response = await fetch("http://backend-hotel-blush.vercel.app/hotel/updateHotel/" + id, {
+      const response = await fetch("https://backend-hotel-blush.vercel.app/hotel/updateHotel/" + id, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

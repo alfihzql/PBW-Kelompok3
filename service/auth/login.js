@@ -10,7 +10,7 @@ const onLogin = async () => {
     const passwordElement = document.getElementById("password");
     const userNameValue = userNameElement.value;
     const passwordValue = passwordElement.value;
-    const res = await fetch("http://backend-hotel-blush.vercel.app/auth/login", {
+    const res = await fetch("https://backend-hotel-blush.vercel.app/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

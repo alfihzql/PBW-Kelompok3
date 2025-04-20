@@ -14,7 +14,7 @@ const onRegister = async () => {
     const passwordValue = passwordElement.value;
     const callNumberValue = callNumberElement.value;
     const addressValue = addressElement.value;
-    const res = await fetch("http://backend-hotel-blush.vercel.app/auth/register", {
+    const res = await fetch("https://backend-hotel-blush.vercel.app/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

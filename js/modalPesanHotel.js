@@ -30,7 +30,7 @@ const handlePesanHotelModal = () => {
 
     if (!handleCheckInput(!namaPemesan, jumlahKamar, checkIn, checkOut)) return alert("Isi semua inputan");
 
-    const response = await fetch("http://backend-hotel-blush.vercel.app/pemesanan/buatPemesanan", {
+    const response = await fetch("https://backend-hotel-blush.vercel.app/pemesanan/buatPemesanan", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

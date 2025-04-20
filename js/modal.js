@@ -31,7 +31,7 @@ const handleOpenModal = () => {
 
     if (!handleCheckInput(hotelName, address, rating, totalRoom, price)) return alert("Isi semua inputan");
 
-    const response = await fetch("http://backend-hotel-blush.vercel.app/hotel/createHotel", {
+    const response = await fetch("https://backend-hotel-blush.vercel.app/hotel/createHotel", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
