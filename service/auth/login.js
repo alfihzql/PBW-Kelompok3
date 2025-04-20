@@ -10,6 +10,7 @@ const onLogin = async () => {
     const passwordElement = document.getElementById("password");
     const userNameValue = userNameElement.value;
     const passwordValue = passwordElement.value;
+
     const res = await fetch("https://backend-hotel-blush.vercel.app/auth/login", {
       method: "POST",
       headers: {
@@ -20,10 +21,14 @@ const onLogin = async () => {
         password: passwordValue,
       }),
     });
+
     const response = await res.json();
+
     if (response.token) {
+      localStorage.setItem("currentUser", JSON.stringify(response.data));
       redirectToPage(response.data.role);
     }
+
     console.log(response);
   });
 };

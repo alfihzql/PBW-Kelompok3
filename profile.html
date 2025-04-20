@@ -29,7 +29,7 @@
           <h1>Profil Pengguna</h1>
           <div class="user-info">
             <img src="image/Person.png" alt="User Profile" />
-            <span>Budi Santoso</span>
+            <span id="header-username">Memuat</span>
           </div>
         </div>
 
@@ -37,10 +37,9 @@
         <div class="content-section">
           <!-- Profile Header with Avatar -->
           <div class="profile-header">
-            <img src="image/Person.png" alt="Budi Santoso" class="profile-avatar" />
+            <img src="image/Person.png" alt="Budi Santoso" class="profile-avatar" id="profile-avatar" />
             <div class="profile-details">
-              <h1>Budi Santoso</h1>
-              <p>Member sejak Januari 2023</p>
+              <h1 id="profile-fullname">Memuat...</h1>
               <div class="badge"><i class="fas fa-medal"></i> Silver Member</div>
             </div>
           </div>
@@ -97,38 +96,27 @@
             <div class="tab-contents">
               <!-- Personal Info Tab -->
               <div id="personal-info" class="tab-content active">
-                <div class="profile-info-grid">
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-user"></i> Nama Lengkap</div>
-                    <div class="info-value">Budi Santoso</div>
-                  </div>
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-envelope"></i> Email</div>
-                    <div class="info-value">budi.santoso@example.com</div>
-                  </div>
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-phone"></i> No. Telepon</div>
-                    <div class="info-value">+62 812-3456-7890</div>
-                  </div>
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-map-marker-alt"></i> Alamat</div>
-                    <div class="info-value">Jl. Pahlawan No. 123, Jakarta, 12345</div>
-                  </div>
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-medal"></i> Membership</div>
-                    <div class="info-value">Silver</div>
-                  </div>
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-star"></i> Poin Reward</div>
-                    <div class="info-value">250 poin</div>
-                  </div>
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-calendar-alt"></i> Tanggal Daftar</div>
-                    <div class="info-value">01 Jan 2023</div>
-                  </div>
-                  <div class="profile-info-item">
-                    <div class="info-label"><i class="fas fa-hotel"></i> Preferensi Kamar</div>
-                    <div class="info-value">Deluxe</div>
+                  <div class="profile-info-grid">
+                    <div class="profile-info-item">
+                      <div class="info-label"><i class="fas fa-user"></i> Nama Lengkap</div>
+                      <div class="info-value" id="info-fullname">Memuat...</div>
+                    </div>
+                    <div class="profile-info-item">
+                      <div class="info-label"><i class="fas fa-envelope"></i> Email</div>
+                      <div class="info-value" id="info-email">Memuat...</div>
+                    </div>
+                    <div class="profile-info-item">
+                      <div class="info-label"><i class="fas fa-phone"></i> No. Telepon</div>
+                      <div class="info-value" id="info-phone">Memuat...</div>
+                    </div>
+                    <div class="profile-info-item">
+                      <div class="info-label"><i class="fas fa-map-marker-alt"></i> Alamat</div>
+                      <div class="info-value" id="info-address">Memuat...</div>
+                    </div>
+                    <div class="profile-info-item">
+                      <div class="info-label"><i class="fas fa-medal"></i> Membership</div>
+                      <div class="info-value" id="info-membership"> Silver Member</div>
+                    </div>
                   </div>
                 </div>
 
@@ -139,30 +127,34 @@
 
               <!-- Edit Profile Tab -->
               <div id="edit-profile" class="tab-content">
-                <form class="profile-form">
+                <form id="edit-profile-form" class="profile-form">
                   <div class="form-row">
                     <div class="form-group">
-                      <label for="name"> <i class="fas fa-user"></i> Nama Lengkap </label>
-                      <input type="text" id="name" value="Budi Santoso" class="form-control" />
+                      <label for="edit-name"><i class="fas fa-user"></i> Nama Lengkap</label>
+                      <input type="text" id="edit-name" class="form-control" />
                     </div>
                     <div class="form-group">
-                      <label for="email"> <i class="fas fa-envelope"></i> Email </label>
-                      <input type="email" id="email" value="budi.santoso@example.com" class="form-control" />
+                      <label for="edit-email"><i class="fas fa-envelope"></i> Email</label>
+                      <input type="email" id="edit-email" class="form-control" />
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group">
-                      <label for="phone"> <i class="fas fa-phone"></i> No. Telepon </label>
-                      <input type="tel" id="phone" value="+62 812-3456-7890" class="form-control" />
+                      <label for="edit-phone"><i class="fas fa-phone"></i> No. Telepon</label>
+                      <input type="tel" id="edit-phone" class="form-control" />
                     </div>
                     <div class="form-group">
-                      <label for="address"> <i class="fas fa-map-marker-alt"></i> Alamat </label>
-                      <input type="text" id="address" value="Jl. Pahlawan No. 123, Jakarta, 12345" class="form-control" />
+                      <label for="edit-address"><i class="fas fa-map-marker-alt"></i> Alamat</label>
+                      <input type="text" id="edit-address" class="form-control" />
                     </div>
                   </div>
                   <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="changeTab('personal-info')"><i class="fas fa-times"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan Perubahan</button>
+                    <button type="button" class="btn btn-secondary" onclick="changeTab('personal-info')">
+                      <i class="fas fa-times"></i> Batal
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-save"></i> Simpan Perubahan
+                    </button>
                   </div>
                 </form>
               </div>
