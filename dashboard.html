@@ -4,134 +4,105 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="logo">
-          <img src="image/HotelKu.png" alt="Hotel Logo" />
-        </div>
-        <div class="nav-items">
-          <a href="dashboard.html" class="nav-item active" data-page="dashboard"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
-          <a href="hotels.html" class="nav-item" data-page="hotels"> <i class="fas fa-hotel"></i> Hotel </a>
-          <a href="rooms.html" class="nav-item" data-page="rooms"> <i class="fas fa-bed"></i> Kamar </a>
-          <a href="reservations.html" class="nav-item" data-page="reservations"> <i class="fas fa-calendar-check"></i> Reservasi </a>
-          <a href="payments.html" class="nav-item" data-page="payments"> <i class="fas fa-credit-card"></i> Pembayaran </a>
-          <a href="reports.html" class="nav-item" data-page="reports"> <i class="fas fa-chart-line"></i> Laporan </a>
-          <a href="notifications.html" class="nav-item" data-page="notifications"> <i class="fas fa-bell"></i> Notifikasi & Log </a>
-          <a href="settings.html" class="nav-item" data-page="settings"> <i class="fas fa-cog"></i> Pengaturan </a>
-          <a href="reviews.html" class="nav-item" data-page="reviews"> <i class="fas fa-star"></i> Ulasan </a>
-          <a href="logout.html" class="nav-item" data-page="logout"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
-        </div>
-      </div>
+  <body class="flex min-h-screen bg-gray-100"> 
+      <div id="navbar-placeholder"></div>
 
       <!-- Main Content -->
-      <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-          <h1>Dashboard Admin</h1>
-          <div class="user-info">
-            <img src="image/Person.png" alt="Admin Profile" />
-            <span>Admin</span>
+      <div class="main-content flex-grow p-4">
+        <div class="header bg-white rounded-md shadow-sm p-4 mb-4 flex justify-between items-center">
+          <h1 class="text-2xl font-semibold text-gray-800">Dashboard Admin</h1>
+          <div class="user-info flex items-center space-x-2">
+            <img src="image/Person.png" alt="Admin Profile" class="w-8 h-8 rounded-full" />
+            <span class="text-gray-700">Admin</span>
           </div>
         </div>
 
-        <!-- Konten Dashboard -->
-        <div class="content-section dashboard-section">
-          <!-- Bagian Statistik Utama -->
-          <div class="stats-container">
+        <div class="content-section dashboard-section max-w-7xl mx-auto">
+          <div class="stats-container grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div class="stat-card">
               <div class="stat-icon hotel">
                 <i class="fas fa-hotel"></i>
               </div>
               <div class="stat-info">
-                <h3>Hotel Aktif</h3>
-                <div class="stat-value">24</div>
+                <h3 class="text-gray-600 text-sm font-medium">Hotel Aktif</h3>
+                <div class="stat-value text-3xl font-bold text-gray-800">24</div>
               </div>
             </div>
 
             <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-bed"></i>
-              </div>
+              <div class="stat-icon bg-purple-500"><i class="fas fa-bed"></i></div>
               <div class="stat-info">
-                <h3>Kamar Tersedia</h3>
-                <div class="stat-value">142/300</div>
-                <div class="availability-bar">
+                <h3 class="text-gray-600 text-sm font-medium">Kamar Tersedia</h3>
+                <div class="stat-value text-3xl font-bold text-gray-800">142/300</div>
+                <div class="availability-bar mt-2">
                   <div class="available" style="width: 47%"></div>
                 </div>
               </div>
             </div>
 
             <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-calendar-check"></i>
-              </div>
+              <div class="stat-icon bg-green-500"><i class="fas fa-calendar-check"></i></div>
               <div class="stat-info">
-                <h3>Reservasi Aktif</h3>
-                <div class="stat-value">89</div>
+                <h3 class="text-gray-600 text-sm font-medium">Reservasi Aktif</h3>
+                <div class="stat-value text-3xl font-bold text-gray-800">89</div>
               </div>
             </div>
           </div>
 
-          <!-- Baris Grafik dan Notifikasi -->
-          <div class="dashboard-grid">
-            <!-- Status Kamar -->
-            <div class="card availability-card">
-              <div class="card-header">
-                <div class="card-title">Status Kamar</div>
-                <button class="btn btn-primary btn-xs" onclick="window.location.href='rooms.html'">Lihat Semua <i class="fas fa-arrow-right"></i></button>
+          <div class="dashboard-grid grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div class="card availability-card lg:col-span-1">
+              <div class="card-header flex justify-between items-center p-6 border-b border-gray-200">
+                <div class="card-title text-lg font-semibold text-gray-800">Status Kamar</div>
+                <button class="btn btn-primary btn-xs" onclick="window.location.href='rooms.html'">Lihat Semua <i class="fas fa-arrow-right ml-1"></i></button>
               </div>
-              <div class="availability-container">
-                <div class="availability-item">
+              <div class="availability-container p-6">
+                <div class="availability-item flex items-center mb-2">
                   <span class="status-indicator occupied"></span>
-                  <span class="status-text">Terisi</span>
-                  <span class="status-count">158 Kamar</span>
+                  <span class="status-text text-gray-700 mr-auto">Terisi</span>
+                  <span class="status-count text-gray-800 font-semibold">158 Kamar</span>
                 </div>
-                <div class="availability-item">
+                <div class="availability-item flex items-center">
                   <span class="status-indicator available"></span>
-                  <span class="status-text">Tersedia</span>
-                  <span class="status-count">142 Kamar</span>
+                  <span class="status-text text-gray-700 mr-auto">Tersedia</span>
+                  <span class="status-count text-gray-800 font-semibold">142 Kamar</span>
                 </div>
               </div>
             </div>
 
-            <!-- Notifikasi -->
-            <div class="card notification-card">
-              <div class="card-header">
-                <div class="card-title">Aktivitas Terbaru</div>
-                <button class="btn btn-primary btn-xs" onclick="window.location.href='notifications.html'">Lihat Semua <i class="fas fa-arrow-right"></i></button>
+            <div class="card notification-card lg:col-span-1">
+              <div class="card-header flex justify-between items-center p-6 border-b border-gray-200">
+                <div class="card-title text-lg font-semibold text-gray-800">Aktivitas Terbaru</div>
+                <button class="btn btn-primary btn-xs" onclick="window.location.href='notifications.html'">Lihat Semua <i class="fas fa-arrow-right ml-1"></i></button>
               </div>
-              <div class="notification-list">
+              <div class="notification-list py-2">
                 <div class="notification-item new">
                   <i class="fas fa-bell notification-icon"></i>
                   <div class="notification-content">
-                    <div class="notification-title">Reservasi Baru John Doe</div>
-                    <div class="notification-time">15 menit lalu</div>
+                    <div class="notification-title font-medium text-gray-800">Reservasi Baru John Doe</div>
+                    <div class="notification-time text-sm text-gray-500">15 menit lalu</div>
                   </div>
                 </div>
                 <div class="notification-item">
                   <i class="fas fa-bell notification-icon"></i>
                   <div class="notification-content">
-                    <div class="notification-title">Reservasi Baru Jane Smith</div>
-                    <div class="notification-time">2 jam lalu</div>
+                    <div class="notification-title font-medium text-gray-800">Reservasi Baru Jane Smith</div>
+                    <div class="notification-time text-sm text-gray-500">2 jam lalu</div>
                   </div>
                 </div>
-                <!-- Tambahkan notifikasi lainnya -->
               </div>
             </div>
 
-            <!-- Tabel Reservasi -->
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">Reservasi Terbaru</div>
-                <button class="btn btn-primary btn-xs" onclick="window.location.href='reservations.html'">Lihat Semua <i class="fas fa-arrow-right"></i></button>
+            <div class="card notification-card lg:col-span-1">
+              <div class="card-header flex justify-between items-center p-6 border-b border-gray-200">
+                <div class="card-title text-lg font-semibold text-gray-800">Reservasi Terbaru</div>
+                <button class="btn btn-primary btn-xs" onclick="window.location.href='reservations.html'">Lihat Semua <i class="fas fa-arrow-right ml-1"></i></button>
               </div>
-              <div class="table-container">
+              <div class="table-container overflow-x-auto">
                 <table class="reservations-table">
                   <thead>
                     <tr>
@@ -142,7 +113,24 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- Isi tabel reservasi -->
+                    <tr class="hover:bg-gray-50">
+                      <td>John Doe</td>
+                      <td>Grand Hotel</td>
+                      <td>2025-05-25 10:00</td>
+                      <td><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Check-in</span></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                      <td>Jane Smith</td>
+                      <td>City View Inn</td>
+                      <td>2025-05-24 15:30</td>
+                      <td><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                      <td>Michael Brown</td>
+                      <td>Lake Resort</td>
+                      <td>2025-05-23 09:00</td>
+                      <td><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Cancelled</span></td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -150,12 +138,13 @@
           </div>
         </div>
       </div>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast"></div>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="js/script.js"></script>
+      <script src="js/loadComponent.js"></script>
     </div>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="toast"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/script.js"></script>
   </body>
 </html>

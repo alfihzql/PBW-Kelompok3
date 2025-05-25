@@ -4,101 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manajemen Hotel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
-  <body>
-    <div class="container">
-      <div id="modal-tambah-data" class="modal">
-        <div class="modal-content w-[35%] rounded-xl bg-white shadow-[0px_4px_7px_grey] flex flex-col items-center justify-center gap-5">
-          <h1 class="font-bold text-xl">Tambah Data Hotel</h1>
-          <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="hotel-name-input" placeholder="Nama Hotel" />
-          <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="address-input" placeholder="Lokasi" />
-          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="rating-input" placeholder="Rating" />
-          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="total-room-input" placeholder="Total Kamar" />
-          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="price-input" placeholder="Harga" />
-          <div class="w-full gap-5 flex justify-end items-center">
-            <button id="close-modal" class="button-modal bg-red-400 hover:scale-[1.05] duration-300">Batal</button>
-            <button id="add-data" class="button-modal bg-blue-400 hover:scale-[1.05] duration-300">Tambah</button>
-          </div>
-        </div>
-      </div>
-      <div id="modal-edit-data" class="modal">
-        <div class="modal-content w-[35%] rounded-xl bg-white shadow-[0px_4px_7px_grey] flex flex-col items-center justify-center gap-5">
-          <h1 class="font-bold text-xl">Edit Data Hotel</h1>
-          <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="hotel-name" placeholder="Nama Hotel" />
-          <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="address" placeholder="Lokasi" />
-          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="rating" placeholder="Rating" />
-          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="total-room" placeholder="Total Kamar" />
-          <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="price" placeholder="Harga" />
-          <div class="w-full gap-5 flex justify-end items-center">
-            <button id="close-modal-edit" class="button-modal bg-red-400 hover:scale-[1.05] duration-300">Batal</button>
-            <button id="add-data-edit" class="button-modal bg-blue-400 hover:scale-[1.05] duration-300">Selesai</button>
-          </div>
-        </div>
-      </div>
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="logo">
-          <img src="image/HotelKu.png" alt="Hotel Logo" />
-        </div>
-        <div class="nav-items">
-          <a href="dashboard.html" class="nav-item" data-page="dashboard"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
-          <a href="hotels.html" class="nav-item active" data-page="hotels"> <i class="fas fa-hotel"></i> Hotel </a>
-          <a href="rooms.html" class="nav-item" data-page="rooms"> <i class="fas fa-bed"></i> Kamar </a>
-          <a href="reservations.html" class="nav-item" data-page="reservations"> <i class="fas fa-calendar-check"></i> Reservasi </a>
-          <a href="payments.html" class="nav-item" data-page="payments"> <i class="fas fa-credit-card"></i> Pembayaran </a>
-          <a href="reports.html" class="nav-item" data-page="reports"> <i class="fas fa-chart-line"></i> Laporan </a>
-          <a href="notifications.html" class="nav-item" data-page="notifications"> <i class="fas fa-bell"></i> Notifikasi & Log </a>
-          <a href="settings.html" class="nav-item" data-page="settings"> <i class="fas fa-cog"></i> Pengaturan </a>
-          <a href="reviews.html" class="nav-item" data-page="reviews"> <i class="fas fa-star"></i> Ulasan </a>
-          <a href="logout.html" class="nav-item" data-page="logout"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+  <body class="flex min-h-screen bg-gray-100">
+    <div id="navbar-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow p-4">
+      <div class="header bg-white rounded-md shadow-sm p-4 mb-4 flex justify-between items-center">
+        <h1 class="text-2xl font-semibold text-gray-800">Manajemen Hotel</h1>
+        <div class="user-info flex items-center space-x-2">
+          <img src="image/Person.png" alt="Admin Profile" class="w-8 h-8 rounded-full" />
+          <span class="text-gray-700">Admin</span>
         </div>
       </div>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <div class="header">
-          <h1 class="font-bold text-3xl">Manajemen Hotel</h1>
-          <div class="user-info">
-            <img src="image/Person.png" alt="Admin Profile" />
-            <span>Admin</span>
-          </div>
-        </div>
-
-        <div class="content-section">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-header-top">
-                <div class="card-title">Daftar Hotel</div>
-                <button class="btn btn-primary" id="add-hotel-btn"><i class="fas fa-plus"></i> Tambah Hotel</button>
-              </div>
+      <div class="content-section">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-top">
+              <div class="card-title">Daftar Hotel</div>
+              <button class="btn btn-primary" id="add-hotel-btn"><i class="fas fa-plus"></i> Tambah Hotel</button>
             </div>
+          </div>
 
-            <div class="table-container">
-              <table class="hotel-management-table">
-                <thead>
-                  <tr>
-                    <th>Nama Hotel</th>
-                    <th>Lokasi</th>
-                    <th>Rating</th>
-                    <th>Jumlah Kamar</th>
-                    <th>Harga</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody id="hotels-table-body">
-                  <!-- Data akan diisi via JavaScript -->
-                </tbody>
-              </table>
-            </div>
+          <div class="table-container">
+            <table class="hotel-management-table">
+              <thead>
+                <tr>
+                  <th>Nama Hotel</th>
+                  <th>Lokasi</th>
+                  <th>Rating</th>
+                  <th>Jumlah Kamar</th>
+                  <th>Harga</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="hotels-table-body">
+                <!-- Data akan diisi via JavaScript -->
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+
+    <div id="modal-tambah-data" class="modal">
+      <div class="modal-content w-[35%] rounded-xl bg-white shadow-[0px_4px_7px_grey] flex flex-col items-center justify-center gap-5">
+        <h1 class="font-bold text-xl">Tambah Data Hotel</h1>
+        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="hotel-name-input" placeholder="Nama Hotel" />
+        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="address-input" placeholder="Lokasi" />
+        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="rating-input" placeholder="Rating" />
+        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="total-room-input" placeholder="Total Kamar" />
+        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="price-input" placeholder="Harga" />
+        <div class="w-full gap-5 flex justify-end items-center">
+          <button id="close-modal" class="button-modal bg-red-400 hover:scale-[1.05] duration-300">Batal</button>
+          <button id="add-data" class="button-modal bg-blue-400 hover:scale-[1.05] duration-300">Tambah</button>
+        </div>
+      </div>
+    </div>
+    <div id="modal-edit-data" class="modal">
+      <div class="modal-content w-[35%] rounded-xl bg-white shadow-[0px_4px_7px_grey] flex flex-col items-center justify-center gap-5">
+        <h1 class="font-bold text-xl">Edit Data Hotel</h1>
+        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="hotel-name" placeholder="Nama Hotel" />
+        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="address" placeholder="Lokasi" />
+        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="rating" placeholder="Rating" />
+        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="total-room" placeholder="Total Kamar" />
+        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="price" placeholder="Harga" />
+        <div class="w-full gap-5 flex justify-end items-center">
+          <button id="close-modal-edit" class="button-modal bg-red-400 hover:scale-[1.05] duration-300">Batal</button>
+          <button id="add-data-edit" class="button-modal bg-blue-400 hover:scale-[1.05] duration-300">Selesai</button>
+        </div>
+      </div>
+    </div>
+
     <script src="js/script.js"></script>
     <script src="js/modal.js"></script>
+    <script src="js/loadComponent.js"></script>
   </body>
 </html>
