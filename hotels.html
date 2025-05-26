@@ -7,10 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
   <body class="flex min-h-screen bg-gray-100">
+    <!-- Sidebar -->
     <div id="navbar-placeholder"></div>
 
     <!-- Main Content -->
@@ -53,37 +53,118 @@
       </div>
     </div>
 
-    <div id="modal-tambah-data" class="modal">
-      <div class="modal-content w-[35%] rounded-xl bg-white shadow-[0px_4px_7px_grey] flex flex-col items-center justify-center gap-5">
-        <h1 class="font-bold text-xl">Tambah Data Hotel</h1>
-        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="hotel-name-input" placeholder="Nama Hotel" />
-        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="address-input" placeholder="Lokasi" />
-        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="rating-input" placeholder="Rating" />
-        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="total-room-input" placeholder="Total Kamar" />
-        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="price-input" placeholder="Harga" />
-        <div class="w-full gap-5 flex justify-end items-center">
-          <button id="close-modal" class="button-modal bg-red-400 hover:scale-[1.05] duration-300">Batal</button>
-          <button id="add-data" class="button-modal bg-blue-400 hover:scale-[1.05] duration-300">Tambah</button>
+    <div id="modal-tambah-data" class="modal hidden z-50 fixed inset-0 flex justify-center items-center bg-black/50">
+      <div class="modal-content w-[35%] rounded-xl bg-white shadow-lg flex flex-col p-8 gap-6">
+        <div class="flex justify-between items-center border-b pb-4">
+          <h1 class="font-bold text-2xl text-gray-800">Tambah Data Hotel</h1>
         </div>
-      </div>
-    </div>
-    <div id="modal-edit-data" class="modal">
-      <div class="modal-content w-[35%] rounded-xl bg-white shadow-[0px_4px_7px_grey] flex flex-col items-center justify-center gap-5">
-        <h1 class="font-bold text-xl">Edit Data Hotel</h1>
-        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="hotel-name" placeholder="Nama Hotel" />
-        <input type="text" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="address" placeholder="Lokasi" />
-        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="rating" placeholder="Rating" />
-        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="total-room" placeholder="Total Kamar" />
-        <input type="number" class="w-full h-12 outline-none border-[2px] border-gray-400 rounded-lg input-modal" id="price" placeholder="Harga" />
-        <div class="w-full gap-5 flex justify-end items-center">
-          <button id="close-modal-edit" class="button-modal bg-red-400 hover:scale-[1.05] duration-300">Batal</button>
-          <button id="add-data-edit" class="button-modal bg-blue-400 hover:scale-[1.05] duration-300">Selesai</button>
+
+        <div class="space-y-4">
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Hotel</label>
+            <input type="text" class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" id="hotel-name-input" placeholder="Masukkan nama hotel" />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Lokasi</label>
+            <input type="text" class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" id="address-input" placeholder="Masukkan lokasi hotel" />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Rating</label>
+            <input
+              type="number"
+              min="1"
+              max="5"
+              class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+              id="rating-input"
+              placeholder="Masukkan rating (1-5)"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Total Kamar</label>
+            <input
+              type="number"
+              min="1"
+              class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+              id="total-room-input"
+              placeholder="Masukkan jumlah kamar"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Harga</label>
+            <input
+              type="number"
+              min="0"
+              class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+              id="price-input"
+              placeholder="Masukkan harga per malam"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-4 pt-4 border-t">
+          <button id="close-modal" class="px-6 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">Batal</button>
+          <button id="add-data" class="px-6 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors">Tambah Hotel</button>
         </div>
       </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <div id="modal-edit-data" class="modal hidden z-50 fixed inset-0 flex justify-center items-center bg-black/50">
+      <div class="modal-content w-[35%] rounded-xl bg-white shadow-lg flex flex-col p-8 gap-6">
+        <div class="flex justify-between items-center border-b pb-4">
+          <h1 class="font-bold text-2xl text-gray-800">Edit Data Hotel</h1>
+        </div>
+
+        <div class="space-y-4">
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Hotel</label>
+            <input type="text" class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" id="hotel-name" placeholder="Masukkan nama hotel" />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Lokasi</label>
+            <input type="text" class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" id="address" placeholder="Masukkan lokasi hotel" />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Rating</label>
+            <input
+              type="number"
+              min="1"
+              max="5"
+              class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+              id="rating"
+              placeholder="Masukkan rating (1-5)"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Total Kamar</label>
+            <input type="number" min="1" class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" id="total-room" placeholder="Masukkan jumlah kamar" />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Harga</label>
+            <input type="number" min="0" class="w-full h-12 px-4 outline-none border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors" id="price" placeholder="Masukkan harga per malam" />
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-4 pt-4 border-t">
+          <button id="close-modal-edit" class="px-6 py-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">Batal</button>
+          <button id="add-data-edit" class="px-6 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors">Simpan Perubahan</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/utils/validation.js"></script>
+    <script src="js/utils/api.js"></script>
+    <script src="js/utils/domHelpers.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/loadComponent.js"></script>
+    <script src="js/pages/hotels.js"></script>
   </body>
 </html>

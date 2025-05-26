@@ -9,18 +9,17 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body>
-    <div class="container">
+  <body class="flex min-h-screen bg-gray-100">
       <!-- Sidebar -->
       <div id="navbar-placeholder"></div>
 
       <!-- Main Content -->
-      <div class="main-content">
-        <div class="header">
-          <h1>Notifikasi & Log Aktivitas</h1>
-          <div class="user-info">
-            <img src="image/Person.png" alt="Admin Profile" />
-            <span>Admin</span>
+      <div class="main-content flex-grow p-4">
+        <div class="header bg-white rounded-md shadow-sm p-4 mb-4 flex justify-between items-center">
+          <h1 class="text-2xl font-semibold text-gray-800">Notifikasi & Log Aktivitas</h1>
+          <div class="user-info flex items-center space-x-2">
+            <img src="image/Person.png" alt="Admin Profile"  class="w-8 h-8 rounded-full"/>
+            <span class="text-gray-700">Admin</span>
           </div>
         </div>
 
@@ -95,7 +94,6 @@
       </div>
     </div>
 
-    <script src="/js/script.js"></script>
     <script src="/js/loadComponent.js"></script>
   </body>
 </html>

@@ -9,18 +9,17 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body>
-    <div class="container">
+  <body class="flex min-h-screen bg-gray-100">
       <!-- Sidebar -->
       <div id="navbar-placeholder"></div>
 
       <!-- Main Content -->
-      <div class="main-content">
-        <div class="header">
-          <h1>Keluar</h1>
-          <div class="user-info">
-            <img src="image/Person.png" alt="User Profile" />
-            <span>Admin</span>
+      <div class="main-content flex-grow p-4">
+        <div class="header bg-white rounded-md shadow-sm p-4 mb-4 flex justify-between items-center">
+          <h1 class="text-2xl font-semibold text-gray-800">Keluar</h1>
+          <div class="user-info flex items-center space-x-2">
+            <img src="image/Person.png" alt="User Profile" class="w-8 h-8 rounded-full" />
+            <span class="text-gray-700">Admin</span>
           </div>
         </div>
 
@@ -44,39 +43,7 @@
       </div>
     </div>
 
-    <script>
-      function logout() {
-        // Show countdown
-        document.getElementById("countdown").style.display = "block";
-
-        // Disable logout button
-        document.querySelector(".btn-logout").style.pointerEvents = "none";
-        document.querySelector(".btn-logout").style.opacity = "0.7";
-
-        // Start countdown
-        let seconds = 5;
-        const countdownInterval = setInterval(function () {
-          seconds--;
-          document.getElementById("seconds").textContent = seconds;
-
-          if (seconds <= 0) {
-            clearInterval(countdownInterval);
-            // Redirect to login page
-            window.location.href = "login.html";
-          }
-        }, 1000);
-
-        // Simulate logout by clearing any session data
-        localStorage.removeItem("user");
-        sessionStorage.removeItem("user");
-
-        // For demo purposes, we're just redirecting after the countdown
-        setTimeout(function () {
-          window.location.href = "login.html";
-        }, 5000);
-      }
-    </script>
-    <script src="js/script.js"></script>
+    <script src="js/pages/logout.js"></script>
     <script src="js/loadComponent.js"></script>
   </body>
 </html>

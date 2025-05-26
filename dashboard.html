@@ -10,11 +10,12 @@
   </head>
 
   <body class="flex min-h-screen bg-gray-100"> 
+    <!-- Sidebar -->
       <div id="navbar-placeholder"></div>
 
       <!-- Main Content -->
       <div class="main-content flex-grow p-4">
-        <div class="header bg-white rounded-md shadow-sm p-4 mb-4 flex justify-between items-center">
+        <div class="header bg-white rounded-md shadow-sm p-4 mb-4  flex justify-between items-center">
           <h1 class="text-2xl font-semibold text-gray-800">Dashboard Admin</h1>
           <div class="user-info flex items-center space-x-2">
             <img src="image/Person.png" alt="Admin Profile" class="w-8 h-8 rounded-full" />
@@ -22,8 +23,8 @@
           </div>
         </div>
 
-        <div class="content-section dashboard-section max-w-7xl mx-auto">
-          <div class="stats-container grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="content-section dashboard-section max-w-8xl mx-auto">
+          <div class="stats-container grid grid-cols-1 md:grid-cols-3 columns-3 gap-5 mb-8">
             <div class="stat-card">
               <div class="stat-icon hotel">
                 <i class="fas fa-hotel"></i>
@@ -54,7 +55,7 @@
             </div>
           </div>
 
-          <div class="dashboard-grid grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div class="dashboard-grid grid grid-cols-1 lg:grid-cols-3 gap-5">
             <div class="card availability-card lg:col-span-1">
               <div class="card-header flex justify-between items-center p-6 border-b border-gray-200">
                 <div class="card-title text-lg font-semibold text-gray-800">Status Kamar</div>
@@ -143,7 +144,6 @@
       <div id="toast" class="toast"></div>
 
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script src="js/script.js"></script>
       <script src="js/loadComponent.js"></script>
     </div>
   </body>

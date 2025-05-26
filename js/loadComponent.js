@@ -39,7 +39,7 @@ function highlightActiveNavItem() {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Memuat sidebar. Setelah sidebar dimuat, jalankan highlightActiveNavItem.
-  loadComponent("navbar-placeholder", "components/navbar.html", highlightActiveNavItem);
+  loadComponent("navbar-placeholder", "partials/navbar.html", highlightActiveNavItem);
 
   // Anda juga bisa memuat header jika itu komponen terpisah
   // loadComponent('header-placeholder', 'components/header.html');

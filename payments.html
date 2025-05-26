@@ -9,18 +9,17 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body>
-    <div class="container">
+  <body class="flex min-h-screen bg-gray-100">
       <!-- Sidebar -->
       <div id="navbar-placeholder"></div>
 
       <!-- Main Content -->
-      <div class="main-content">
-        <div class="header">
-          <h1>Manajemen Pembayaran</h1>
-          <div class="user-info">
-            <img src="image/Person.png" alt="Admin Profile" />
-            <span>Admin</span>
+      <div class="main-content flex-grow p-4">
+        <div class="header bg-white rounded-md shadow-sm p-4 mb-4 flex justify-between items-center">
+          <h1 class="text-2xl font-semibold text-gray-800">Manajemen Pembayaran</h1>
+          <div class="user-info flex items-center space-x-2">
+            <img src="image/Person.png" alt="Admin Profile" class="w-8 h-8 rounded-full" />
+            <span class="text-gray-700">Admin</span>
           </div>
         </div>
 
@@ -67,74 +66,6 @@
       </div>
     </div>
 
-    <!-- Payment Detail Modal -->
-    <div class="modal-backdrop" id="payment-detail-modal">
-      <div class="modal modal-lg">
-        <div class="modal-header">
-          <div class="modal-title">Detail Transaksi</div>
-          <button class="close-modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="payment-detail">
-            <div class="detail-row">
-              <div class="detail-label">ID Transaksi:</div>
-              <div class="detail-value" id="payment-id"></div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Tanggal:</div>
-              <div class="detail-value" id="payment-date"></div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Nama Pengguna:</div>
-              <div class="detail-value" id="payment-user"></div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Metode Pembayaran:</div>
-              <div class="detail-value" id="payment-method"></div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Jumlah:</div>
-              <div class="detail-value" id="payment-amount"></div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Status:</div>
-              <div class="detail-value">
-                <span class="payment-status-badge" id="payment-status-badge"></span>
-              </div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-label">Detail Pembayaran:</div>
-              <div class="detail-value" id="payment-details"></div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-success" id="confirm-payment-btn">Konfirmasi</button>
-          <button class="btn btn-danger" id="refund-btn">Proses Refund</button>
-          <button class="btn" id="close-payment-detail">Tutup</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Confirmation Modal -->
-    <div class="modal-backdrop" id="confirmation-modal">
-      <div class="modal">
-        <div class="modal-header">
-          <div class="modal-title">Konfirmasi Pembayaran</div>
-          <button class="close-modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <p>Apakah Anda yakin ingin mengkonfirmasi pembayaran ini?</p>
-          <div id="confirmation-details"></div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" id="confirm-yes">Ya</button>
-          <button class="btn" id="confirm-no">Batal</button>
-        </div>
-      </div>
-    </div>
-
-    <script src="/js/script.js"></script>
     <script src="js/loadComponent.js"></script>
   </body>
 </html>
