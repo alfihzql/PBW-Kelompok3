@@ -3,29 +3,32 @@
 const API_BASE_URL = "https://backend-hotel-blush.vercel.app";
 
 async function fetchData(endpoint, method = "GET", data = null) {
+  // Gabungkan BASE_URL dengan endpoint yang relatif
+  const url = `${API_BASE_URL}${endpoint}`;
+
   const options = {
-    method: method,
+    method,
     headers: {
       "Content-Type": "application/json",
+      // Anda mungkin juga perlu menambahkan 'Authorization' jika nanti ada token
     },
   };
+
   if (data) {
     options.body = JSON.stringify(data);
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
-    const result = await response.json();
+    const response = await fetch(url, options);
 
     if (!response.ok) {
-      throw new Error(result.message || `HTTP error! Status: ${response.status}`);
+      const errorData = await response.json();
+      throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
     }
-    return result;
+
+    return await response.json();
   } catch (error) {
-    console.error(`Error fetching data from ${endpoint}:`, error);
+    console.error(`Error fetching ${url}:`, error);
     throw error;
   }
 }
-// Tidak perlu export atau window.fetchData = fetchData; jika semua script dimuat langsung.
-// Tapi untuk modularitas, biasanya pakai export dan type="module" di script HTML.
-// Jika tidak pakai type="module", maka fungsi ini akan otomatis global.

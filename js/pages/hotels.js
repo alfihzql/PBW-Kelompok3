@@ -3,6 +3,8 @@
 // Fungsi untuk Manajemen Hotel (sudah disesuaikan)
 async function initHotels() {
   console.log("Initializing Hotels Management from hotels.js");
+  // Tampilkan status memuat sebelum memulai fetch
+  updateTable("hotels-table-body", [], null, 6, "Memuat data hotel...", true); // Parameter terakhir 'true' untuk loading state
   try {
     const res = await fetchData("/hotel/getAllHotels"); // Menggunakan fungsi fetchData
     console.log("Hotels data from API:", res);
@@ -170,6 +172,8 @@ function handleEditButtonClick(event) {
 
 // Event listener untuk tombol "Tambah Hotel" di halaman utama
 document.addEventListener("DOMContentLoaded", () => {
+  initHotels();
+
   const addHotelBtn = document.getElementById("add-hotel-btn");
   const closeModalAddBtn = document.getElementById("close-modal");
   const addDataNewBtn = document.getElementById("add-data");

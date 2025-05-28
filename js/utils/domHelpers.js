@@ -1,29 +1,44 @@
 // js/utils/domHelpers.js
 
-// Fungsi untuk memperbarui tabel generik
-function updateTable(tbodyId, data, mapFunction, colSpan = 6, noDataMessage = "Tidak ada data.") {
+// Fungsi untuk memperbarui tabel HTML
+// Menambahkan parameter 'isLoading' untuk menampilkan pesan loading
+function updateTable(tbodyId, data, mapFunction, colspan, message, isLoading = false) {
   const tbody = document.getElementById(tbodyId);
-  if (tbody) {
-    if (!data || data.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="${colSpan}" class="text-center py-4 text-gray-500">${noDataMessage}</td></tr>`;
-      return;
-    }
-    tbody.innerHTML = data.map(mapFunction).join("");
+  if (!tbody) {
+    console.error(`Error: tbody with ID "${tbodyId}" not found.`);
+    return;
   }
-}
 
-// Fungsi untuk membuat elemen badge status (misal: di tabel)
-function createStatusBadge(statusText, statusClass) {
-  return `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}">${statusText}</span>`;
-}
+  tbody.innerHTML = ""; // Kosongkan isi tabel sebelumnya
 
-// Fungsi untuk refresh halaman (setelah CRUD sukses)
-function refreshPage() {
-  window.location.href = window.location.href;
-}
+  if (isLoading) {
+    // Tampilkan pesan loading
+    const loadingRow = `
+          <tr>
+              <td colspan="${colspan}" class="px-5 py-3 text-sm text-center text-gray-500">
+                  <i class="fas fa-spinner fa-spin mr-2"></i> ${message}
+              </td>
+          </tr>
+      `;
+    tbody.insertAdjacentHTML("beforeend", loadingRow);
+    return; // Hentikan eksekusi lebih lanjut jika sedang loading
+  }
 
-// Fungsi untuk mendapatkan ID dari URL (untuk halaman seperti rooms.html)
-function getUrlParam(paramName) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get(paramName);
+  // Jika tidak loading, cek apakah ada data
+  if (data.length === 0) {
+    const emptyRow = `
+          <tr>
+              <td colspan="${colspan}" class="px-5 py-3 text-sm text-center text-gray-500">
+                  ${message}
+              </td>
+          </tr>
+      `;
+    tbody.insertAdjacentHTML("beforeend", emptyRow);
+  } else {
+    // Tampilkan data sebenarnya
+    data.forEach((item) => {
+      const rowHtml = mapFunction(item);
+      tbody.insertAdjacentHTML("beforeend", rowHtml);
+    });
+  }
 }
