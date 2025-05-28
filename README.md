@@ -1,9 +1,9 @@
 # HotelKu - Sistem Manajemen Hotel
 ## Kelompok 3
-Dea Zasqia Pasaribu Malau (2308107010004)
-Muhammad Hizqil Alfi (2308107010046)
-Muhammad Milan Maulidan Mulizar (2308107010064)
-Alief Aulia SAG (2308107010028)
+* **Dea Zasqia Pasaribu Malau (2308107010004)**
+* **Muhammad Hizqil Alfi (2308107010046)**
+* **Muhammad Milan Maulidan Mulizar (2308107010064)**
+* **Alief Aulia SAG (2308107010028)**
 
 [![CODE](https://skillicons.dev/icons?i=html,css,js,mysql,mongodb,node,express)](https://skillicons.dev)
 
