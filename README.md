@@ -1,6 +1,6 @@
 # HotelKu - Sistem Manajemen Hotel
 
-[![CODE](https://skillicons.dev/icons?i=html,css,js,mysql,mongodb)](https://skillicons.dev)
+[![CODE](https://skillicons.dev/icons?i=html,css,js,mysql,mongodb,node,express)](https://skillicons.dev)
 
 ## 📄Deskripsi Proyek
 
