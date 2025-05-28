@@ -154,7 +154,6 @@ npm install
 
 ### **3. Setup Database**
 
-* **MySQL**: Instal MySQL dan buat database sesuai dengan skema yang disediakan.
 * **MongoDB**: Jika menggunakan MongoDB, pastikan server MongoDB berjalan dan konfigurasi sesuai dengan kebutuhan aplikasi.
 
 ### **4. Jalankan Aplikasi**
