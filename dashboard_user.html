@@ -3,117 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Dashboard Pengguna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/style7.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <div class="sidebar_user">
-        <div class="logo">
-          <img src="/image/HotelKu.png" alt="Hotel Logo" />
-        </div>
-        <div class="nav-items">
-          <a href="dashboard_user.html" class="nav-item active"> <i class="fas fa-home"></i> Dashboard </a>
-          <a href="reservations_user.html" class="nav-item"> <i class="fas fa-calendar-check"></i> Reservasi </a>
-          <a href="payments_user.html" class="nav-item"> <i class="fas fa-credit-card"></i> Pembayaran </a>
-          <a href="profile.html" class="nav-item"> <i class="fas fa-user"></i> Profil </a>
-          <a href="logout.html" class="nav-item logout-btn"> <i class="fas fa-sign-out-alt"></i> Keluar </a>
+  <body class="flex min-h-screen bg-gray-100">
+    <div id="navbar-placeholder"></div>
+
+    <div class="main-content flex-grow p-4">
+      <div class="header bg-white rounded-md shadow-sm p-4 mb-4 flex justify-between items-center">
+        <h1 class="text-2xl font-semibold text-gray-800">Dashboard Pengguna</h1>
+        <div class="user-info flex items-center space-x-2">
+          <img src="/image/Person.png" alt="User Profile" class="w-8 h-8 rounded-full" />
+          <span class="text-gray-700" id="user-display-name">Nama Pengguna</span>
         </div>
       </div>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-          <h1>Dashboard</h1>
-          <div class="user-info">
-            <img src="/image/Person.png" alt="User Profile" />
-            <span>Nama Pengguna</span>
+      <div class="content-section">
+        <div class="stats-container grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="stat-card bg-white rounded-md shadow-sm p-5 flex items-center space-x-4">
+            <div class="stat-icon p-3 rounded-full bg-blue-100 text-blue-600">
+              <i class="fas fa-calendar-check text-xl"></i>
+            </div>
+            <div class="stat-info">
+              <h3 class="text-gray-500 text-sm font-medium">Reservasi Aktif</h3>
+              <div class="stat-value text-2xl font-semibold text-gray-800" id="active-reservations-value">0</div>
+              <div class="stat-trend text-green-500 text-xs font-medium">+0% (30d)</div>
+            </div>
+          </div>
+
+          <div class="stat-card bg-white rounded-md shadow-sm p-5 flex items-center space-x-4">
+            <div class="stat-icon p-3 rounded-full bg-green-100 text-green-600">
+              <i class="fas fa-wallet text-xl"></i>
+            </div>
+            <div class="stat-info">
+              <h3 class="text-gray-500 text-sm font-medium">Total Pembayaran</h3>
+              <div class="stat-value text-2xl font-semibold text-gray-800" id="total-payments-value">Rp 0</div>
+              <div class="stat-trend text-green-500 text-xs font-medium">+0% (bulan lalu)</div>
+            </div>
+          </div>
+
+          <div class="stat-card bg-white rounded-md shadow-sm p-5 flex items-center space-x-4">
+            <div class="stat-icon p-3 rounded-full bg-yellow-100 text-yellow-600">
+              <i class="fas fa-bell text-xl"></i>
+            </div>
+            <div class="stat-info">
+              <h3 class="text-gray-500 text-sm font-medium">Notifikasi Baru</h3>
+              <div class="stat-value text-2xl font-semibold text-gray-800" id="new-notifications-value">0</div>
+            </div>
           </div>
         </div>
 
-        <!-- Dashboard Content -->
-        <div class="content-section">
-          <div class="stats-container">
-            <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-calendar-check"></i>
-              </div>
-              <div class="stat-info">
-                <h3>Reservasi Aktif</h3>
-                <div class="stat-value">89</div>
-                <div class="stat-trend positive">+10% (30d)</div>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-wallet"></i>
-              </div>
-              <div class="stat-info">
-                <h3>Total Pembayaran</h3>
-                <div class="stat-value">Rp 182.5jt</div>
-                <div class="stat-trend positive">+23% (bulan lalu)</div>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-bell"></i>
-              </div>
-              <div class="stat-info">
-                <h3>Notifikasi Baru</h3>
-                <div class="stat-value">5</div>
-              </div>
-            </div>
+        <div class="card bg-white rounded-md shadow-sm p-6">
+          <div class="card-header flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-gray-800">Reservasi Terbaru</h2>
+            <button class="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm" onclick="window.location.href='reservations_user.html'">Lihat Semua <i class="fas fa-arrow-right ml-1"></i></button>
           </div>
-
-          <!-- Recent Reservations -->
-          <div class="card">
-            <div class="card-header">
-              <h2>Reservasi Terbaru</h2>
-              <button class="btn btn-primary btn-xs" onclick="window.location.href='reservations_user.html'">Lihat Semua <i class="fas fa-arrow-right"></i></button>
-            </div>
-            <div class="table-container">
-              <table class="reservations-table">
-                <thead>
-                  <tr>
-                    <th>ID Reservasi</th>
-                    <th>Hotel</th>
-                    <th>Tanggal</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>#12345</td>
-                    <td>Hotel Mawar</td>
-                    <td>15 Maret 2025</td>
-                    <td><span class="status-badge new">Baru</span></td>
-                  </tr>
-                  <tr>
-                    <td>#12346</td>
-                    <td>Hotel Melati</td>
-                    <td>20 Maret 2025</td>
-                    <td><span class="status-badge confirmed">Dikonfirmasi</span></td>
-                  </tr>
-                  <tr>
-                    <td>#12347</td>
-                    <td>Hotel Anggrek</td>
-                    <td>25 Maret 2025</td>
-                    <td><span class="status-badge cancelled">Dibatalkan</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="table-container overflow-x-auto">
+            <table class="min-w-full leading-normal">
+              <thead>
+                <tr class="bg-gray-50 border-b border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th class="px-5 py-3">ID Reservasi</th>
+                  <th class="px-5 py-3">Hotel</th>
+                  <th class="px-5 py-3">Tanggal</th>
+                  <th class="px-5 py-3">Status</th>
+                </tr>
+              </thead>
+              <tbody id="recent-reservations-table-body">
+                <tr class="hover:bg-gray-50">
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">#12345</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">Hotel Mawar</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">15 Maret 2025</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm"><span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Baru</span></td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">#12346</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">Hotel Melati</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">20 Maret 2025</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm"><span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Dikonfirmasi</span></td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">#12347</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">Hotel Anggrek</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm">25 Maret 2025</td>
+                  <td class="px-5 py-3 border-b border-gray-200 text-sm"><span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Dibatalkan</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="js/script7.js"></script>
+    <script src="js/loadComponent.js"></script>
   </body>
 </html>
