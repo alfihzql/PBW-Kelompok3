@@ -96,7 +96,7 @@ function handleDeleteButtonClick(event) {
 }
 
 const handleOpenEditModal = (id) => {
-  OpenModal("modal-edit-data"); // Memanggil fungsi openModal dari modal.js
+  openModal("modal-edit-data"); // Memanggil fungsi openModal dari modal.js
   const hotelToEdit = hotels.find((h) => h._id === id);
   if (hotelToEdit) {
     document.getElementById("hotel-name").value = hotelToEdit.hotelName;
@@ -122,7 +122,7 @@ const handleUpdateHotel = async () => {
   }
 
   try {
-    const res = await fetchData(`/hotel/updateHotel/${id}`, "PATCH", {
+    const res = await fetchData(`/hotel/updateHotel/${id}`, "POST", {
       hotelName,
       address,
       rating: +rating,
