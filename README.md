@@ -1,12 +1,14 @@
 # HotelKu - Sistem Manajemen Hotel
 
-## Deskripsi Proyek
+[![CODE](https://skillicons.dev/icons?i=html,css,js,mysql,mongodb)](https://skillicons.dev)
+
+## 📄Deskripsi Proyek
 
 **HotelKu** adalah sistem manajemen hotel berbasis web yang dirancang untuk memberikan solusi efektif dalam mengelola pengelolaan hotel, termasuk pemesanan kamar, pembayaran, dan manajemen pengguna. Aplikasi ini dibangun dengan tujuan untuk mempermudah pengelolaan hotel baik dari sisi pengguna (user) maupun administrator (admin).
 
 Dengan antarmuka yang modern dan fungsional, **HotelKu** memungkinkan pengelolaan kamar dan reservasi dengan cepat dan efisien. Pengguna dapat melihat informasi kamar yang tersedia, membuat pemesanan, serta melakukan pembayaran, sedangkan admin memiliki kontrol penuh terhadap data pengguna, kamar, dan laporan aktivitas hotel.
 
-## Fitur Utama Aplikasi
+## 🧩Fitur Utama Aplikasi
 
 ### 1. **Login dan Signup**
 
@@ -55,7 +57,7 @@ Pengguna dapat melakukan pembayaran untuk reservasi kamar mereka. Admin dapat me
 * **Pembayaran oleh Pengguna**: Pengguna dapat melanjutkan ke halaman pembayaran setelah memilih kamar.
 * **Verifikasi Pembayaran oleh Admin**: Admin dapat memeriksa dan mengonfirmasi pembayaran yang telah dilakukan oleh pengguna.
 
-## Teknologi yang Digunakan
+## ⚙️Teknologi yang Digunakan
 
 Aplikasi ini dibangun menggunakan berbagai teknologi yang memungkinkan kinerja tinggi dan pengalaman pengguna yang lancar:
 
@@ -79,7 +81,7 @@ Aplikasi ini dibangun menggunakan berbagai teknologi yang memungkinkan kinerja t
   * **HTTPS** untuk komunikasi aman.
   * **Password Hashing** untuk penyimpanan password pengguna secara aman.
 
-## Struktur Proyek
+## 🔣Struktur Proyek
 
 Proyek ini menggunakan struktur file standar yang memisahkan file HTML, CSS, dan JavaScript. Berikut adalah rincian file yang terdapat dalam sistem:
 
@@ -88,7 +90,7 @@ Proyek ini menggunakan struktur file standar yang memisahkan file HTML, CSS, dan
 * **JS**: Untuk interaksi dinamis di frontend, termasuk validasi form dan pengelolaan sesi.
 * **Node.js/Express.js**: Backend untuk pengelolaan data pengguna, autentikasi, dan komunikasi dengan database.
 
-## Pengaturan dan Instalasi
+## 🛠️Pengaturan dan Instalasi
 
 Berikut adalah langkah-langkah untuk menjalankan aplikasi ini di komputer lokal Anda:
 
@@ -131,7 +133,7 @@ http://localhost:3000
 
 Buka browser Anda dan akses aplikasi di alamat yang tertera.
 
-## Alur Pengguna
+## 🧑‍💼Alur Pengguna
 
 ### 1. **Pengguna Baru**
 
@@ -153,7 +155,7 @@ Setelah memilih kamar, pengguna dapat melakukan pembayaran melalui berbagai meto
 
 Pengguna dapat mengelola profil mereka setelah login di halaman **Dashboard**.
 
-## Alur Admin
+## 🧑‍🔧Alur Admin
 
 ### 1. **Login Admin**
 
