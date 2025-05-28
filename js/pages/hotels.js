@@ -122,7 +122,7 @@ const handleUpdateHotel = async () => {
   }
 
   try {
-    const res = await fetchData(`/hotel/updateHotel/${id}`, "POST", {
+    const res = await fetchData(`/hotel/updateHotelById/${id}`, "POST", {
       hotelName,
       address,
       rating: +rating,
