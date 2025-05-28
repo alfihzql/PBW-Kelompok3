@@ -185,10 +185,4 @@ Aplikasi akan berjalan di `http://localhost:3000`.
 
 ---
 
-## **Lisensi**
-
-Proyek ini dilisensikan di bawah **MIT License**. Silakan lihat file [LICENSE](LICENSE) untuk informasi lebih lanjut.
-
----
-
 **HotelKu** adalah solusi praktis dan efisien untuk mengelola operasi hotel secara digital, dengan memberikan kontrol penuh bagi admin dan pengalaman pengguna yang nyaman. Jika ada pertanyaan atau perubahan yang diperlukan, jangan ragu untuk menghubungi pengembang aplikasi ini.
