@@ -1,172 +1,188 @@
 # HotelKu - Sistem Manajemen Hotel
+[![CODE](https://skillicons.dev/icons?i=html,css,js,mongodb,nodejs,express)](https://skillicons.dev)
+
+## Kelompok 3
+* **Dea Zasqia Pasaribu Malau (2308107010004)**
+* **Muhammad Hizqil Alfi (2308107010046)**
+* **Muhammad Milan Maulidan Mulizar (2308107010064)**
+* **Alief Aulia SAG (2308107010028)**
 
 ## Deskripsi Proyek
 
-**HotelKu** adalah sistem manajemen hotel berbasis web yang dirancang untuk memberikan solusi efektif dalam mengelola pengelolaan hotel, termasuk pemesanan kamar, pembayaran, dan manajemen pengguna. Aplikasi ini dibangun dengan tujuan untuk mempermudah pengelolaan hotel baik dari sisi pengguna (user) maupun administrator (admin).
+**HotelKu** adalah **Sistem Manajemen Hotel berbasis Web** yang dirancang untuk memberikan solusi praktis dalam pengelolaan operasi hotel. Aplikasi ini dibangun dengan tujuan untuk mempermudah pengelolaan hotel, baik dari sisi **Pengguna** (user) maupun **Administrator** (admin). Dengan antarmuka yang intuitif dan fungsional, **HotelKu** memungkinkan pengelolaan kamar, pemesanan, pembayaran, serta data pengguna secara efisien.
 
-Dengan antarmuka yang modern dan fungsional, **HotelKu** memungkinkan pengelolaan kamar dan reservasi dengan cepat dan efisien. Pengguna dapat melihat informasi kamar yang tersedia, membuat pemesanan, serta melakukan pembayaran, sedangkan admin memiliki kontrol penuh terhadap data pengguna, kamar, dan laporan aktivitas hotel.
+Aplikasi ini memungkinkan pengguna untuk melakukan pemesanan kamar hotel, melihat status reservasi mereka, melakukan pembayaran, dan memperbarui informasi pribadi mereka. Di sisi lain, admin memiliki akses penuh untuk mengelola hotel, kamar, transaksi, pengguna, serta melakukan pengaturan sistem.
 
 ## Fitur Utama Aplikasi
 
-### 1. **Login dan Signup**
+### **1. Login dan Signup**
 
-Fitur autentikasi memungkinkan pengguna baru untuk mendaftar dan pengguna lama untuk login ke dalam sistem. Pengguna yang telah login akan diarahkan ke dashboard mereka sesuai dengan peran mereka (admin atau user).
+Aplikasi ini menyediakan sistem autentikasi pengguna yang memungkinkan pengguna baru untuk mendaftar dan pengguna lama untuk login:
 
-* **Login**: Pengguna dapat masuk dengan menggunakan email dan password yang terdaftar di sistem.
-* **Signup**: Pengguna baru dapat membuat akun dengan mengisi data pribadi seperti nama, email, password, dan konfirmasi password.
+* **Login**: Pengguna dapat masuk dengan menggunakan email dan password yang telah terdaftar di sistem.
+* **Signup**: Pengguna baru dapat membuat akun dengan mengisi data pribadi seperti nama lengkap, email, dan password.
 
-### 2. **Manajemen Pengguna (CRUD Admin)**
+### **2. Dashboard Pengguna**
 
-Admin dapat mengelola data pengguna melalui dashboard admin dengan melakukan **Create, Read, Update, dan Delete** (CRUD) data pengguna.
+Setelah login, pengguna akan diarahkan ke **Dashboard Pengguna**, yang menyediakan informasi terkait dengan pemesanan mereka:
 
-* **Create**: Admin dapat menambah pengguna baru.
-* **Read**: Admin dapat melihat daftar pengguna yang terdaftar.
-* **Update**: Admin dapat memperbarui data pengguna, termasuk status dan peran pengguna.
-* **Delete**: Admin dapat menghapus pengguna yang tidak aktif.
+* **Reservasi Aktif**: Pengguna dapat melihat jumlah reservasi aktif dan statusnya.
+* **Total Pembayaran**: Pengguna dapat melihat total pembayaran yang telah dilakukan.
+* **Notifikasi Baru**: Pengguna akan menerima pemberitahuan terkait dengan status pemesanan atau informasi lainnya.
+* **Reservasi Hotel**: Pengguna dapat melihat daftar reservasi terbaru mereka.
+* **Sidebar Navigasi**: Terdapat menu untuk **Reservasi Hotel**, **Pembayaran**, **Profil**, dan **Keluar**.
 
-### 3. **Dashboard Pengguna**
+Pada halaman **Profil**, pengguna dapat melihat dan memperbarui data diri, termasuk level member, informasi profil, preferensi, dan pengaturan keamanan.
 
-Dashboard pengguna memungkinkan pengguna untuk melihat dan mengelola informasi mereka setelah login. Pengguna dapat melakukan pemesanan kamar, melihat status pemesanan, serta memperbarui informasi pribadi mereka.
+### **3. Dashboard Admin**
 
-* **Profil Pengguna**: Pengguna dapat melihat informasi profil mereka, seperti nama, email, dan password.
-* **Reservasi Kamar**: Pengguna dapat melihat berbagai pilihan kamar yang tersedia di hotel dan melakukan pemesanan.
-* **Pembayaran**: Pengguna dapat melanjutkan pembayaran untuk reservasi mereka melalui sistem yang aman.
+Admin memiliki akses penuh ke **Dashboard Admin**, yang mencakup berbagai kontrol manajerial:
 
-### 4. **Dashboard Admin**
+* **Hotel Aktif**: Menampilkan jumlah hotel yang aktif dalam sistem.
+* **Kamar Tersedia**: Menampilkan jumlah kamar yang tersedia dan terisi.
+* **Reservasi Aktif**: Menampilkan jumlah reservasi yang sedang berlangsung.
+* **Status Kamar**: Menampilkan status ketersediaan kamar (tersedia atau terisi).
+* **Aktivitas Terbaru**: Menampilkan aktivitas terbaru terkait pemesanan, pembayaran, dan perubahan status kamar.
+* **Reservasi Terbaru**: Menampilkan reservasi terbaru yang dilakukan oleh pengguna.
 
-Dashboard admin memberikan kontrol penuh terhadap manajemen hotel, termasuk status kamar, aktivitas terbaru, dan reservasi aktif.
+### **4. Manajemen Kamar dan Hotel**
 
-* **Status Kamar**: Admin dapat melihat status ketersediaan kamar (tersedia/terisi) dengan cepat.
-* **Aktivitas Terbaru**: Admin dapat melihat aktivitas terbaru terkait dengan pemesanan dan perubahan yang dilakukan pengguna.
-* **Reservasi Aktif**: Admin dapat memantau jumlah dan status reservasi yang ada, serta memproses atau mengonfirmasi pembayaran.
+Admin dapat mengelola kamar dan hotel melalui dashboard yang disediakan:
 
-### 5. **Manajemen Kamar**
+* **Tambah Hotel**: Admin dapat menambahkan hotel baru ke dalam sistem.
+* **Tambah Kamar**: Admin dapat menambah kamar baru dengan rincian seperti tipe kamar, harga, dan kapasitas.
+* **Edit Kamar**: Admin dapat mengedit informasi kamar, termasuk status dan harga.
+* **Hapus Kamar**: Admin dapat menghapus kamar yang tidak aktif.
 
-Admin dapat menambah, mengedit, dan menghapus data kamar di hotel sesuai dengan kategori, harga, dan status ketersediaannya.
+### **5. Manajemen Pengguna (CRUD Admin)**
 
-* **Menambah Kamar**: Admin dapat menambah kamar baru dengan detail seperti tipe kamar, harga, dan fasilitas.
-* **Mengedit Kamar**: Admin dapat mengedit informasi kamar, termasuk kapasitas dan status.
-* **Menghapus Kamar**: Admin dapat menghapus kamar yang sudah tidak digunakan.
+Admin dapat mengelola data pengguna (CRUD):
 
-### 6. **Pembayaran**
+* **Tambah Pengguna**: Admin dapat menambah pengguna baru ke dalam sistem.
+* **Lihat Pengguna**: Admin dapat melihat daftar pengguna yang terdaftar.
+* **Update Pengguna**: Admin dapat memperbarui data pengguna seperti status dan peran.
+* **Hapus Pengguna**: Admin dapat menghapus pengguna dari sistem.
 
-Pengguna dapat melakukan pembayaran untuk reservasi kamar mereka. Admin dapat memantau status pembayaran yang dilakukan pengguna.
+### **6. Manajemen Reservasi**
 
-* **Pembayaran oleh Pengguna**: Pengguna dapat melanjutkan ke halaman pembayaran setelah memilih kamar.
-* **Verifikasi Pembayaran oleh Admin**: Admin dapat memeriksa dan mengonfirmasi pembayaran yang telah dilakukan oleh pengguna.
+Admin dapat mengelola reservasi melalui halaman **Reservasi**:
 
-## Teknologi yang Digunakan
+* **Tambah Reservasi**: Admin dapat menambah reservasi baru untuk tamu.
+* **Lihat Reservasi**: Admin dapat melihat daftar semua reservasi yang telah dilakukan oleh pengguna.
 
-Aplikasi ini dibangun menggunakan berbagai teknologi yang memungkinkan kinerja tinggi dan pengalaman pengguna yang lancar:
+### **7. Pembayaran**
+
+Admin dapat mengelola dan memverifikasi pembayaran yang dilakukan oleh pengguna:
+
+* **Verifikasi Pembayaran**: Admin dapat melihat daftar transaksi dan memverifikasi status pembayaran.
+* **Riwayat Transaksi**: Admin dapat melihat riwayat semua pembayaran yang telah dilakukan oleh pengguna.
+
+### **8. Pengaturan Sistem dan Harga**
+
+Admin memiliki kontrol penuh terhadap pengaturan sistem hotel:
+
+* **Kelola Peran dan Hak Akses**: Admin dapat menambah atau mengubah peran dan hak akses pengguna dalam sistem.
+* **Pengaturan Harga Kamar dan Diskon**: Admin dapat mengupdate harga kamar dan pengaturan diskon.
+* **Notifikasi Email/SMS**: Admin dapat mengonfigurasi pengaturan notifikasi melalui email atau SMS.
+* **Ulasan Tamu**: Admin dapat melihat dan mengelola ulasan yang diberikan oleh tamu hotel.
+
+### **9. Notifikasi dan Log**
+
+Admin dapat melihat **Notifikasi** dan riwayat **Log**:
+
+* **Notifikasi**: Admin dapat melihat notifikasi terkait dengan pemesanan baru, pembayaran, dan perubahan status.
+* **Riwayat Log**: Admin dapat melihat riwayat log aktivitas pengguna dan admin dalam sistem.
+
+### **10. Keluar (Logout)**
+
+Tombol **Keluar** (Logout) tersedia di setiap halaman untuk memungkinkan pengguna atau admin keluar dari sistem dengan aman.
+
+---
+
+## **Teknologi yang Digunakan**
+
+**HotelKu** dibangun menggunakan berbagai teknologi yang memungkinkan performa optimal dan pengalaman pengguna yang lancar:
 
 * **Frontend**:
 
-  * **HTML5** dan **CSS3** untuk struktur halaman dan styling.
-  * **JavaScript (Vanilla JS)** untuk interaktivitas dan manipulasi DOM.
+  * **HTML5** dan **CSS3** untuk struktur dan desain halaman.
+  * **JavaScript** (Vanilla JS) untuk interaktivitas dan manipulasi DOM.
 
 * **Backend**:
 
-  * **Node.js** sebagai runtime untuk menjalankan server.
-  * **Express.js** sebagai framework untuk pengelolaan routing dan middleware.
-  * **Passport.js** untuk autentikasi pengguna.
+  * **Node.js**: Untuk menjalankan server dan pengelolaan API.
+  * **Express.js**: Framework untuk manajemen routing dan middleware.
+  * **Passport.js**: Untuk autentikasi pengguna.
 
 * **Database**:
 
-  * **MySQL** atau **MongoDB** untuk penyimpanan data pengguna, kamar, dan transaksi.
+  * **MongoDB** untuk penyimpanan data pengguna, kamar, dan transaksi.
 
 * **Keamanan**:
 
-  * **HTTPS** untuk komunikasi aman.
-  * **Password Hashing** untuk penyimpanan password pengguna secara aman.
+  * **HTTPS** untuk komunikasi yang aman.
+  * **Password Hashing** untuk penyimpanan password pengguna dengan aman.
 
-## Struktur Proyek
+---
 
-Proyek ini menggunakan struktur file standar yang memisahkan file HTML, CSS, dan JavaScript. Berikut adalah rincian file yang terdapat dalam sistem:
+## **Struktur Proyek**
 
-* **HTML**: File untuk struktur halaman web utama (login, signup, dashboard pengguna, dashboard admin, dll).
-* **CSS**: File untuk styling halaman dan desain responsif.
-* **JS**: Untuk interaksi dinamis di frontend, termasuk validasi form dan pengelolaan sesi.
-* **Node.js/Express.js**: Backend untuk pengelolaan data pengguna, autentikasi, dan komunikasi dengan database.
+* **HTML**: Untuk membuat struktur halaman web utama (login, signup, dashboard pengguna/admin, dll).
+* **CSS**: File untuk desain dan responsivitas halaman.
+* **JavaScript**: Untuk interaksi dinamis di frontend (validasi form, pengelolaan sesi, dll).
+* **Node.js** / **Express.js**: Backend untuk pengelolaan data, autentikasi, dan komunikasi dengan database.
 
-## Pengaturan dan Instalasi
+---
 
-Berikut adalah langkah-langkah untuk menjalankan aplikasi ini di komputer lokal Anda:
+## **Pengaturan dan Instalasi**
 
-### 1. **Clone Repository**
+### **1. Clone Repository**
 
-Clone repositori ke komputer Anda:
+Clone repositori menggunakan Git:
 
 ```bash
 git clone <repository_url>
 ```
 
-### 2. **Install Dependencies**
+### **2. Install Dependencies**
 
-Setelah meng-clone repositori, install dependensi yang dibutuhkan:
+Setelah meng-clone repositori, install semua dependensi:
 
 ```bash
 npm install
 ```
 
-### 3. **Setup Database**
+### **3. Setup Database**
 
-* Install dan konfigurasikan **MySQL** atau **MongoDB** sesuai pilihan database.
-* Import skema database yang sesuai dari file yang disediakan, atau buat database berdasarkan struktur yang digunakan dalam aplikasi.
+* **MongoDB**: Jika menggunakan MongoDB, pastikan server MongoDB berjalan dan konfigurasi sesuai dengan kebutuhan aplikasi.
 
-### 4. **Jalankan Aplikasi**
+### **4. Jalankan Aplikasi**
 
-Setelah menginstal semua dependensi dan mengonfigurasi database, jalankan aplikasi dengan perintah berikut:
+Jalankan server aplikasi dengan perintah:
 
 ```bash
 npm start
 ```
 
-Aplikasi akan berjalan di:
+Aplikasi akan berjalan di `http://localhost:3000`.
 
-```
-http://localhost:3000
-```
+---
 
-### 5. **Akses Aplikasi**
+## **Alur Pengguna**
 
-Buka browser Anda dan akses aplikasi di alamat yang tertera.
+1. **Pengguna Baru**: Pengguna yang belum memiliki akun dapat mendaftar melalui halaman **Signup**.
+2. **Pengguna Lama**: Pengguna yang sudah terdaftar dapat langsung login melalui halaman **Login**.
+3. **Reservasi Kamar**: Pengguna dapat memilih kamar yang tersedia dan melanjutkan ke halaman pembayaran.
+4. **Pembayaran**: Pengguna melakukan pembayaran setelah memilih kamar.
+5. **Dashboard Pengguna**: Pengguna dapat memantau status reservasi dan memperbarui profil mereka.
 
-## Alur Pengguna
+## **Alur Admin**
 
-### 1. **Pengguna Baru**
+1. **Login Admin**: Admin login untuk mengakses dashboard admin dan mengelola hotel.
+2. **Manajemen Pengguna**: Admin mengelola data pengguna, kamar, dan transaksi.
+3. **Manajemen Reservasi dan Pembayaran**: Admin dapat melihat dan memverifikasi reservasi dan pembayaran.
+4. **Pengaturan Sistem**: Admin dapat mengelola peran pengguna, harga kamar, dan pengaturan sistem.
 
-Pengguna yang belum terdaftar dapat melakukan pendaftaran melalui halaman **Signup**. Setelah pendaftaran, mereka dapat login dan memulai penggunaan aplikasi.
+---
 
-### 2. **Pengguna Lama**
-
-Pengguna yang sudah terdaftar dapat login dengan email dan password melalui halaman **Login**.
-
-### 3. **Reservasi Kamar**
-
-Pengguna dapat melihat kamar yang tersedia, melakukan pemesanan, dan melanjutkan ke halaman pembayaran setelah memilih kamar.
-
-### 4. **Pembayaran**
-
-Setelah memilih kamar, pengguna dapat melakukan pembayaran melalui berbagai metode yang disediakan oleh sistem.
-
-### 5. **Dashboard Pengguna**
-
-Pengguna dapat mengelola profil mereka setelah login di halaman **Dashboard**.
-
-## Alur Admin
-
-### 1. **Login Admin**
-
-Admin dapat login menggunakan kredensial admin dan mengakses dashboard admin yang mengatur seluruh sistem.
-
-### 2. **Manajemen Pengguna**
-
-Admin dapat menambah, mengubah, atau menghapus data pengguna melalui dashboard admin.
-
-### 3. **Manajemen Kamar**
-
-Admin dapat mengelola kamar hotel, termasuk menambah, mengedit, dan menghapus kamar.
-
-### 4. **Pengelolaan Reservasi dan Pembayaran**
-
-Admin dapat memantau status reservasi dan memverifikasi pembayaran yang dilakukan pengguna.
+**HotelKu** adalah solusi praktis dan efisien untuk mengelola operasi hotel secara digital, dengan memberikan kontrol penuh bagi admin dan pengalaman pengguna yang nyaman. Jika ada pertanyaan atau perubahan yang diperlukan, jangan ragu untuk menghubungi pengembang aplikasi ini.
