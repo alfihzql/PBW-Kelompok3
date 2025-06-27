@@ -12,24 +12,24 @@ const onLogin = async () => {
       // Mencegah perilaku default form submission (jika tombol ada di dalam form)
       event.preventDefault();
 
-      // Mengambil elemen input untuk username dan password
-      const userNameElement = document.getElementById("username"); // Pastikan ID input username Anda adalah "username"
+      // Mengambil elemen input untuk email dan password
+      const emailElement = document.getElementById("email"); // PASTIKAN ID input email Anda adalah "email"
       const passwordElement = document.getElementById("password"); // Pastikan ID input password Anda adalah "password"
 
       // Pastikan elemen input ditemukan
-      if (!userNameElement || !passwordElement) {
-        console.error("Username or password input element not found (check IDs 'username' and 'password' in HTML).");
+      if (!emailElement || !passwordElement) {
+        console.error("Email or password input element not found (check IDs 'email' and 'password' in HTML).");
         alert("Terjadi kesalahan: Elemen input tidak ditemukan.");
         return;
       }
 
-      // Mengambil nilai dari input username dan password
-      const userNameValue = userNameElement.value;
+      // Mengambil nilai dari input email dan password
+      const emailValue = emailElement.value;
       const passwordValue = passwordElement.value;
 
       // Validasi input sederhana di frontend
-      if (!userNameValue || !passwordValue) {
-        alert("Silakan isi username dan password.");
+      if (!emailValue || !passwordValue) {
+        alert("Silakan isi email dan password.");
         return;
       }
 
@@ -40,7 +40,7 @@ const onLogin = async () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            userName: userNameValue, // Menggunakan userName
+            email: emailValue, // *** PERUBAHAN DI SINI: Menggunakan 'email' bukan 'userName' ***
             password: passwordValue,
           }),
         });
@@ -72,7 +72,7 @@ const onLogin = async () => {
           }
         } else {
           // Tangani kasus login gagal (misalnya status 400 dari backend)
-          alert(response.message || "Login gagal. Periksa username dan password Anda.");
+          alert(response.message || "Login gagal. Periksa email dan password Anda.");
         }
       } catch (error) {
         // Tangani error jaringan atau error lainnya
