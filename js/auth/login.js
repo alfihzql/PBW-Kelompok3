@@ -1,33 +1,26 @@
 function redirectToPage(role) {
-  // Asumsi: role 1 = admin (dashboard.html), role 0 = user biasa (dashboard_user.html)
-  // Sesuaikan logika role jika Anda memiliki nilai role yang berbeda
   window.location.href = role ? "dashboard.html" : "dashboard_user.html";
 }
 
 const onLogin = async () => {
-  const loginButton = document.getElementById("loginbutton"); // Pastikan ID tombol Anda adalah "loginbutton"
+  const loginButton = document.getElementById("loginbutton");
 
   if (loginButton) {
-    loginButton.addEventListener("click", async (event) => {
-      // Mencegah perilaku default form submission (jika tombol ada di dalam form)
+    loginButton.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      // Mengambil elemen input untuk email dan password
-      const emailElement = document.getElementById("email"); // PASTIKAN ID input email Anda adalah "email"
-      const passwordElement = document.getElementById("password"); // Pastikan ID input password Anda adalah "password"
+      const emailElement = document.getElementById("email");
+      const passwordElement = document.getElementById("password");
 
-      // Pastikan elemen input ditemukan
       if (!emailElement || !passwordElement) {
         console.error("Email or password input element not found (check IDs 'email' and 'password' in HTML).");
         alert("Terjadi kesalahan: Elemen input tidak ditemukan.");
         return;
       }
 
-      // Mengambil nilai dari input email dan password
       const emailValue = emailElement.value;
       const passwordValue = passwordElement.value;
 
-      // Validasi input sederhana di frontend
       if (!emailValue || !passwordValue) {
         alert("Silakan isi email dan password.");
         return;
@@ -40,42 +33,32 @@ const onLogin = async () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: emailValue, // *** PERUBAHAN DI SINI: Menggunakan 'email' bukan 'userName' ***
+            email: emailValue,
             password: passwordValue,
           }),
         });
 
-        const response = await res.json(); // Gunakan 'response' seperti di kode Anda
-        console.log("Login API Response:", response); // Log respons dari backend
+        const response = await res.json();
+        console.log("Login API Response:", response);
 
-        // Cek status respons dari backend (Asumsi: status 200 untuk sukses)
         if (response.status === 200 && response.token) {
-          // --- PERUBAHAN KRUSIAL DI SINI ---
-          // Simpan token ke localStorage
-          window.localStorage.setItem("token", response.token); // Mengambil token dari response.token
-          // Simpan juga data user jika diperlukan di frontend (sesuai contoh sebelumnya)
+          window.localStorage.setItem("token", response.token);
           window.localStorage.setItem("user", JSON.stringify(response.data));
-          // --- AKHIR PERUBAHAN KRUSIAL ---
 
-          alert(response.message || "Login berhasil!"); // Tampilkan pesan sukses dari backend
+          alert(response.message || "Login berhasil!");
 
-          // Mengarahkan berdasarkan role seperti di contoh sebelumnya
           if (response.data && (response.data.role === 1 || response.data.role === true)) {
-            // Asumsi role admin adalah 1 atau true
-            window.location.href = "dashboard.html"; // Sesuaikan path ini dengan halaman admin Anda
+            window.location.href = "dashboard.html";
           } else if (response.data) {
-            // Asumsi role user biasa adalah 0 atau false
-            window.location.href = "dashboard_user.html"; // Sesuaikan path ini dengan halaman user Anda
+            window.location.href = "dashboard_user.html";
           } else {
             console.error("Role data not found in login response.");
-            window.location.href = "index.html"; // Redirect ke halaman default jika role tidak ditemukan
+            window.location.href = "index.html";
           }
         } else {
-          // Tangani kasus login gagal (misalnya status 400 dari backend)
           alert(response.message || "Login gagal. Periksa email dan password Anda.");
         }
       } catch (error) {
-        // Tangani error jaringan atau error lainnya
         console.error("Error during login fetch:", error);
         alert("Terjadi kesalahan saat mencoba login. Mohon coba lagi nanti.");
       }
@@ -85,5 +68,4 @@ const onLogin = async () => {
   }
 };
 
-// Panggil fungsi onLogin untuk menginisialisasi event listener
 onLogin();
